@@ -40,7 +40,7 @@ export function UsersSidebar() {
             onClick={() => setCurrentSubPage(item.subPage)}
             className={`w-full flex items-center gap-3 p-3 rounded-lg transition-all duration-200 cursor-pointer group ${
               currentSubPage === item.subPage
-                ? "bg-terminal-green/20 text-terminal-green border-l-4 border-terminal-green shadow-terminal-glow"
+                ? "bg-terminal-green/20 text-terminal-green border-l-4 border-terminal-green "
                 : "text-gray-400 hover:text-terminal-green hover:bg-gray-900"
             }`}
           >

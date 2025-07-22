@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { GlitchText, GlitchContainer } from "@/components/ui/glitch-effects";
 
 export function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -77,24 +78,31 @@ export function HeroSection() {
       />
 
       {/* Content */}
-      <div className='relative z-10 text-center px-4 max-w-4xl mx-auto'>
-        <h1 className='text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-terminal-green glitch-text'>
-          Transform Imagination Into ASCII & AI Masterpieces
-        </h1>
+      <div className='relative z-10 text-center px-4 max-w-4xl mx-auto scan-lines'>
+        <GlitchContainer>
+          <GlitchText
+            text='Transform Imagination Into ASCII & AI Masterpieces'
+            className='block text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-terminal-green'
+          />
+        </GlitchContainer>
 
-        <p className='text-lg md:text-xl mb-8 text-gray-300 max-w-2xl mx-auto'>
-          Generate stunning ASCII art from text or images, create captivating AI
-          images, and craft generative poetry and code snippets.
-        </p>
+        <GlitchContainer delay={300}>
+          <p className='text-lg md:text-xl mb-8 text-gray-300 max-w-2xl mx-auto'>
+            Generate stunning ASCII art from text or images, create captivating
+            AI images, and craft generative poetry and code snippets.
+          </p>
+        </GlitchContainer>
 
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-          <Button
-            className='bg-terminal-green text-black hover:bg-terminal-green/90 hover:shadow-terminal-glow transition-all duration-300 px-8 py-3 text-lg font-semibold hover-glitch'
-            size='lg'
-            asChild
-          >
-            <a href='/dashboard/'>Try the Demo (Mockup)</a>
-          </Button>
+          <GlitchContainer delay={600}>
+            <Button
+              className='bg-terminal-green text-black hover:bg-terminal-green/90 hover:shadow-terminal-glow transition-all duration-300 px-8 py-3 text-lg font-semibold'
+              size='lg'
+              asChild
+            >
+              <a href='/dashboard/'>Try the Demo (Mockup)</a>
+            </Button>
+          </GlitchContainer>
 
           <Button
             variant='outline'

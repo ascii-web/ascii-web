@@ -52,6 +52,8 @@ const settingsSubPageInfoMap = {
   },
 };
 
+type SettingsSubPage = keyof typeof settingsSubPageInfoMap;
+
 export function PageHeader() {
   const { currentPage, currentSubPage } = useDashboard();
 
@@ -60,10 +62,13 @@ export function PageHeader() {
     description: "Welcome to your ASCII-Web dashboard.",
   };
   const subPageInfo =
-    currentPage === "settings" ? settingsSubPageInfoMap[currentSubPage] : null;
+    currentPage === "settings" &&
+    (currentSubPage as SettingsSubPage) in settingsSubPageInfoMap
+      ? settingsSubPageInfoMap[currentSubPage as SettingsSubPage]
+      : null;
 
   return (
-    <header className='mb-6 pb-4 border-b border-gray-800'>
+    <header className='mb-6 p-4 border-b border-gray-800'>
       <Breadcrumb className='mb-2'>
         <BreadcrumbList>
           <BreadcrumbItem>

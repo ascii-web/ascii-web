@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "../styles/glitch.css";
+
 :root {
   --terminal-green: #00ff00;
   --magenta: #ff00ff;
@@ -11,6 +13,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

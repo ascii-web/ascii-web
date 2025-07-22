@@ -93,8 +93,8 @@ export function DashboardSidebar() {
   return (
     <div
       className={`${
-        isCollapsed ? "w-16" : "w-64"
-      } bg-gray-950 border-r border-gray-800 flex flex-col transition-all duration-300 ease-in-out`}
+        isCollapsed ? "w-20" : "w-64"
+      } bg-gray-950 border-r border-gray-800 flex flex-col transition-all duration-300 ease-in-out h-screen overflow-y-auto sticky top-0`}
     >
       {/* Logo/Header */}
       <div className='p-6 border-b border-gray-800'>
@@ -117,8 +117,8 @@ export function DashboardSidebar() {
             className='p-1 rounded hover:bg-gray-800 transition-colors'
           >
             <ChevronDown
-              className={`w-4 h-4 text-gray-400 transition-transform ${
-                isCollapsed ? "rotate-90" : "rotate-0"
+              className={`w-8 h-8 bg-gray-800 text-terminal-green transition-transform ${
+                isCollapsed ? "-rotate-90" : "rotate-90"
               }`}
             />
           </button>
@@ -160,7 +160,7 @@ export function DashboardSidebar() {
               }}
               className={`flex items-center gap-3 p-3 rounded-lg transition-all duration-200 cursor-pointer group ${
                 currentPage === item.page
-                  ? "bg-terminal-green/20 text-terminal-green border-l-4 border-terminal-green shadow-terminal-glow"
+                  ? "bg-terminal-green/20 text-terminal-green border-l-4 border-terminal-green "
                   : "text-gray-400 hover:text-terminal-green hover:bg-gray-900"
               }`}
             >
