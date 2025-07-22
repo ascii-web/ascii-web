@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import "../styles/glitch.css";
+@import "../styles/glitch-variations.css";
 
 :root {
   --terminal-green: #00ff00;
