@@ -1,0 +1,115 @@
+"use client";
+
+import { useState } from "react";
+import { X } from "lucide-react";
+
+export function AIAssistantWidget() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Much cleaner, minified robot ASCII
+  const robotAscii = `◉ ◉
+ ∩ 
+───`;
+
+  return (
+    <>
+      {/* Chat Bubble */}
+      <div className='fixed bottom-6 right-6 z-50'>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className='bg-gray-900 border-2 border-magenta rounded-full p-3 shadow-2xl hover:shadow-magenta-glow transition-all duration-300 animate-pulse hover:animate-none group relative'
+        >
+          {isOpen ? (
+            <X className='w-6 h-6 text-magenta' />
+          ) : (
+            <div className='flex items-center justify-center'>
+              <div className='text-magenta text-xs leading-tight font-mono'>
+                <pre>{robotAscii}</pre>
+              </div>
+            </div>
+          )}
+
+          {/* Notification dot */}
+          <div className='absolute -top-1 -right-1 w-3 h-3 bg-terminal-green rounded-full animate-pulse'></div>
+        </button>
+
+        {/* Chat Window */}
+        {isOpen && (
+          <div className='absolute bottom-16 right-0 w-80 bg-gray-900 border border-magenta rounded-lg shadow-2xl overflow-hidden animate-in slide-in-from-bottom-2 duration-300'>
+            {/* Header */}
+            <div className='bg-gray-800 px-4 py-3 border-b border-gray-700'>
+              <div className='flex items-center gap-3'>
+                <div className='w-8 h-8 bg-magenta/20 rounded-full flex items-center justify-center border border-magenta/30'>
+                  <div className='text-magenta text-xs leading-tight font-mono'>
+                    <pre>{robotAscii}</pre>
+                  </div>
+                </div>
+                <div>
+                  <div className='text-terminal-green font-bold text-sm'>
+                    ASCII Assistant
+                  </div>
+                  <div className='text-gray-400 text-xs flex items-center gap-1'>
+                    <div className='w-2 h-2 bg-terminal-green rounded-full animate-pulse'></div>
+                    Online • Ready to help
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Chat Content */}
+            <div className='p-4 h-64 overflow-y-auto'>
+              <div className='space-y-4'>
+                <div className='bg-gray-800 rounded-lg p-3 max-w-xs'>
+                  <p className='text-gray-300 text-sm'>
+                    👋 Hi! I'm your ASCII art assistant. I can help you:
+                  </p>
+                  <ul className='text-gray-400 text-xs mt-2 space-y-1'>
+                    <li>• Generate custom ASCII art</li>
+                    <li>• Convert images to ASCII</li>
+                    <li>• Create AI-generated images</li>
+                    <li>• Explain our AI models</li>
+                    <li>• Guide you through features</li>
+                    <li>• Answer technical questions</li>
+                  </ul>
+                </div>
+
+                <div className='bg-gray-800 rounded-lg p-3 max-w-xs'>
+                  <p className='text-terminal-green text-sm'>
+                    What would you like to create today?
+                  </p>
+                </div>
+
+                {/* Quick Action Buttons */}
+                <div className='flex flex-wrap gap-2'>
+                  <button className='bg-gray-700 hover:bg-terminal-green hover:text-black text-gray-300 text-xs px-3 py-1 rounded-full transition-colors'>
+                    Generate Art
+                  </button>
+                  <button className='bg-gray-700 hover:bg-magenta hover:text-black text-gray-300 text-xs px-3 py-1 rounded-full transition-colors'>
+                    Generate Image
+                  </button>
+                  <button className='bg-gray-700 hover:bg-blue-500 hover:text-black text-gray-300 text-xs px-3 py-1 rounded-full transition-colors'>
+                    View Gallery
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Input */}
+            <div className='border-t border-gray-700 p-3'>
+              <div className='flex gap-2'>
+                <input
+                  type='text'
+                  placeholder='Type your message...'
+                  className='flex-1 bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm text-white placeholder-gray-400 focus:border-terminal-green focus:outline-none'
+                />
+                <button className='bg-magenta text-black px-3 py-2 rounded text-sm font-semibold hover:bg-magenta/90 transition-colors'>
+                  Send
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  );
+}
