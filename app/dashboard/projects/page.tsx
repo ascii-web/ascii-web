@@ -31,14 +31,12 @@ function ProjectsContent() {
 
 export default function ProjectsPage() {
   return (
-    <DashboardLayout>
-      <Suspense
-        fallback={
-          <div className='p-4 text-terminal-green'>Loading projects...</div>
-        }
-      >
-        <ProjectsContent />
-      </Suspense>
-    </DashboardLayout>
+    <Suspense
+      fallback={
+        <div className='p-4 text-terminal-green'>Loading projects...</div>
+      }
+    >
+      <ProjectsContent />
+    </Suspense>
   );
 }

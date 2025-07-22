@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { GlitchVariation } from "@/components/ui/glitch-variations";
 import { Plus, Minus } from "lucide-react";
+import Link from "next/link";
 
 export function FAQSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -92,9 +93,11 @@ export function FAQSection() {
               <p className='text-gray-400 mb-4'>
                 Still have questions? We're here to help!
               </p>
-              <button className='px-8 py-3 border border-terminal-green text-terminal-green rounded hover:bg-terminal-green/10 transition-colors'>
-                Contact Support
-              </button>
+              <Link href='mailto:support@ascii-web.com'>
+                <button className='px-8 py-3 border border-terminal-green text-terminal-green rounded hover:bg-terminal-green/10 transition-colors'>
+                  Contact Support
+                </button>
+              </Link>
             </div>
           </GlitchVariation>
         </div>

@@ -1,15 +1,19 @@
-"use client"
+"use client";
 
-import { AuthGuard } from "@/components/auth/auth-guard"
-import { DashboardRouter } from "@/components/dashboard/dashboard-router"
-import { DashboardSidebar } from "@/components/dashboard/dashboard-sidebar"
+import { Suspense } from "react";
+import { DashboardRouter } from "@/components/dashboard/dashboard-router";
+import { DashboardSidebar } from "@/components/dashboard/dashboard-sidebar";
 
 export default function DashboardPage() {
   return (
-    <AuthGuard>
-      <DashboardRouter>
+    <DashboardRouter>
+      <Suspense
+        fallback={
+          <div className='p-4 text-terminal-green'>Loading dashboard...</div>
+        }
+      >
         <DashboardSidebar />
-      </DashboardRouter>
-    </AuthGuard>
-  )
+      </Suspense>
+    </DashboardRouter>
+  );
 }

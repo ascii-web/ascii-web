@@ -3,20 +3,72 @@
 import type React from "react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Github, Twitter, MessageCircle } from "lucide-react";
+import { Github, Twitter, MessageCircle, Loader2 } from "lucide-react";
 import { GlitchText, GlitchContainer } from "@/components/ui/glitch-effects";
+import { useToast } from "@/hooks/use-toast";
+
+// Get your access key from https://web3forms.com/
+const FORM_ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY";
 
 export function ContactSection() {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: FORM_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `New Contact Form Submission from ${formData.name}`,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message sent!",
+          description: "We'll get back to you as soon as possible.",
+          className: "bg-terminal-green text-black",
+        });
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast({
+        title: "Error sending message",
+        description:
+          "Please try again later or contact us through social media.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -93,75 +145,21 @@ export function ContactSection() {
             <GlitchContainer delay={800}>
               <Button
                 type='submit'
-                className='w-full bg-magenta text-black hover:bg-magenta/90 py-3 text-lg font-semibold transition-all duration-300 hover:shadow-magenta-glow'
+                disabled={isSubmitting}
+                className='w-full bg-magenta text-black hover:bg-magenta/90 py-3 text-lg font-semibold transition-all duration-300 hover:shadow-magenta-glow disabled:opacity-50 disabled:cursor-not-allowed'
               >
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                    Sending...
+                  </>
+                ) : (
+                  "Send Message"
+                )}
               </Button>
             </GlitchContainer>
           </form>
         </div>
-
-        {/* Footer */}
-        <footer className='border-t border-gray-800 pt-12'>
-          <div className='grid md:grid-cols-3 gap-8 items-center'>
-            {/* Social Links */}
-            <GlitchContainer delay={1000}>
-              <div className='flex justify-center md:justify-start gap-6'>
-                <a
-                  href='#'
-                  className='text-gray-400 hover:text-terminal-green transition-colors'
-                >
-                  <Github className='w-6 h-6' />
-                </a>
-                <a
-                  href='#'
-                  className='text-gray-400 hover:text-terminal-green transition-colors'
-                >
-                  <Twitter className='w-6 h-6' />
-                </a>
-                <a
-                  href='#'
-                  className='text-gray-400 hover:text-terminal-green transition-colors'
-                >
-                  <MessageCircle className='w-6 h-6' />
-                </a>
-              </div>
-            </GlitchContainer>
-
-            {/* Logo and Copyright */}
-            <GlitchContainer delay={1200}>
-              <div className='text-center'>
-                <div className='text-2xl font-bold mb-2'>
-                  <GlitchText
-                    text='Ascii-Web.com'
-                    className='text-terminal-green'
-                  />
-                </div>
-                <div className='text-gray-400 text-sm'>
-                  © 2025 All rights reserved
-                </div>
-              </div>
-            </GlitchContainer>
-
-            {/* Legal Links */}
-            <GlitchContainer delay={1400}>
-              <div className='flex justify-center md:justify-end gap-6 text-sm'>
-                <a
-                  href='#'
-                  className='text-gray-400 hover:text-terminal-green transition-colors'
-                >
-                  Terms of Service
-                </a>
-                <a
-                  href='#'
-                  className='text-gray-400 hover:text-terminal-green transition-colors'
-                >
-                  Privacy Policy
-                </a>
-              </div>
-            </GlitchContainer>
-          </div>
-        </footer>
       </div>
     </section>
   );
