@@ -1,6 +1,6 @@
 "use client";
 
-import { useDashboard } from "./dashboard-router";
+import { usePathname } from "next/navigation";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -55,7 +55,23 @@ const settingsSubPageInfoMap = {
 type SettingsSubPage = keyof typeof settingsSubPageInfoMap;
 
 export function PageHeader() {
-  const { currentPage, currentSubPage } = useDashboard();
+  const pathname = usePathname();
+
+  type PageType = keyof typeof pageInfoMap;
+
+  const getCurrentPage = (): PageType => {
+    if (pathname === "/dashboard") return "create";
+    const path = pathname.split("/")[2] as PageType;
+    return path || "create";
+  };
+
+  const getCurrentSubPage = () => {
+    const parts = pathname.split("/");
+    return parts[3] || null;
+  };
+
+  const currentPage = getCurrentPage();
+  const currentSubPage = getCurrentSubPage();
 
   const mainPageInfo = pageInfoMap[currentPage] || {
     title: "Dashboard",

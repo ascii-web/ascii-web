@@ -1,10 +1,13 @@
 "use client";
 
 import { User, Lock, CreditCard, Bell } from "lucide-react";
-import { useDashboard } from "./dashboard-router";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export function SettingsSubNavigation() {
-  const { currentSubPage, setCurrentSubPage } = useDashboard();
+  const pathname = usePathname();
+  const currentSubPage = pathname.split("/")[3] || "profile";
 
   const subNavigationItems = [
     { icon: User, label: "Profile", subPage: "profile" },
@@ -18,24 +21,26 @@ export function SettingsSubNavigation() {
       <h3 className='text-lg font-bold text-terminal-green mb-4'>Settings</h3>
       <nav className='flex-1 space-y-2'>
         {subNavigationItems.map((item, index) => (
-          <button
+          <Link
             key={index}
-            onClick={() => setCurrentSubPage(item.subPage)}
-            className={`flex items-center gap-3 p-3 rounded-lg transition-all duration-200 cursor-pointer group w-full text-left ${
+            href={`/dashboard/settings/${item.subPage}`}
+            className={cn(
+              "flex items-center gap-3 p-3 rounded-lg transition-all duration-200 cursor-pointer group w-full text-left",
               currentSubPage === item.subPage
-                ? "bg-terminal-green/20 text-terminal-green border-l-4 border-terminal-green "
+                ? "bg-terminal-green/20 text-terminal-green border-l-4 border-terminal-green"
                 : "text-gray-400 hover:text-terminal-green hover:bg-gray-800"
-            }`}
+            )}
           >
             <item.icon
-              className={`w-5 h-5 ${
+              className={cn(
+                "w-5 h-5",
                 currentSubPage === item.subPage
                   ? "text-terminal-green"
                   : "group-hover:text-terminal-green"
-              }`}
+              )}
             />
             <span className='font-semibold'>{item.label}</span>
-          </button>
+          </Link>
         ))}
       </nav>
     </div>

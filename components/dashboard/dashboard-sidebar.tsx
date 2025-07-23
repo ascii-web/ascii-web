@@ -12,7 +12,9 @@ import {
   Bell,
   Search,
 } from "lucide-react";
-import { useDashboard } from "./dashboard-router";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/firebase-auth";
 
 const navigationItems = [
@@ -49,7 +51,7 @@ const navigationItems = [
 ];
 
 export function DashboardSidebar() {
-  const { currentPage, setCurrentPage } = useDashboard();
+  const pathname = usePathname();
   const { user, logout } = useAuth();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [notifications, setNotifications] = useState(3);
@@ -151,22 +153,18 @@ export function DashboardSidebar() {
       <nav className='flex-1 p-4'>
         <div className='space-y-2'>
           {navigationItems.map((item, index) => (
-            <a
+            <Link
               key={index}
               href={item.href}
-              onClick={(e) => {
-                e.preventDefault();
-                setCurrentPage(item.page);
-              }}
               className={`flex items-center gap-3 p-3 rounded-lg transition-all duration-200 cursor-pointer group ${
-                currentPage === item.page
+                pathname === item.href
                   ? "bg-terminal-green/20 text-terminal-green border-l-4 border-terminal-green "
                   : "text-gray-400 hover:text-terminal-green hover:bg-gray-900"
               }`}
             >
               <item.icon
                 className={`w-5 h-5 ${
-                  currentPage === item.page
+                  pathname === item.href
                     ? "text-terminal-green"
                     : "group-hover:text-terminal-green"
                 }`}
@@ -174,7 +172,7 @@ export function DashboardSidebar() {
               {!isCollapsed && (
                 <span className='font-semibold'>{item.label}</span>
               )}
-            </a>
+            </Link>
           ))}
         </div>
       </nav>
@@ -226,10 +224,12 @@ export function DashboardSidebar() {
             <div className='relative'>
               <div className='w-10 h-10 bg-terminal-green/20 rounded-full flex items-center justify-center border border-terminal-green/30 transition-all duration-200 hover:scale-110 hover:shadow-terminal-glow'>
                 {user?.avatar ? (
-                  <img
+                  <OptimizedImage
                     src={user.avatar || "/placeholder.svg"}
                     alt='Avatar'
-                    className='w-full h-full rounded-full'
+                    width={40}
+                    height={40}
+                    className='rounded-full'
                   />
                 ) : (
                   <span className='text-terminal-green text-sm font-bold'>

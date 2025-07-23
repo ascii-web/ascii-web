@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { GlitchVariation } from "@/components/ui/glitch-variations";
 import { Quote } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 export function TestimonialsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -13,21 +14,21 @@ export function TestimonialsSection() {
       role: "Digital Artist",
       quote:
         "This platform has completely transformed how I create ASCII art. The AI assistance is mind-blowing!",
-      avatar: "/avatars/sarah.jpg",
+      avatar: "/placeholder-user.jpg",
     },
     {
       name: "Marcus Rodriguez",
       role: "Software Developer",
       quote:
         "As a developer, I appreciate the clean interface and powerful API. It's become an essential part of my toolkit.",
-      avatar: "/avatars/marcus.jpg",
+      avatar: "/placeholder-user.jpg",
     },
     {
       name: "Emily Thompson",
       role: "Content Creator",
       quote:
         "The variety of styles and easy export options make creating unique content a breeze.",
-      avatar: "/avatars/emily.jpg",
+      avatar: "/placeholder-user.jpg",
     },
   ];
 
@@ -57,7 +58,14 @@ export function TestimonialsSection() {
                     "{testimonial.quote}"
                   </p>
                   <div className='flex items-center gap-4'>
-                    <div className='w-12 h-12 rounded-full bg-terminal-green/20 flex items-center justify-center'>
+                    <div className='w-12 h-12 rounded-full bg-terminal-green/20 overflow-hidden'>
+                      <OptimizedImage
+                        src={testimonial.avatar}
+                        alt={`${testimonial.name}'s avatar`}
+                        width={48}
+                        height={48}
+                        className='rounded-full'
+                      />
                       <span className='text-terminal-green text-lg font-bold'>
                         {testimonial.name[0]}
                       </span>

@@ -2,8 +2,8 @@
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import Image from "next/image";
 import { Facebook, Youtube, Twitter, Linkedin } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 const socialLinks = [
   {
@@ -76,12 +76,13 @@ export function Footer() {
               className='flex items-center space-x-4 fade-in-glitch'
               style={{ animationDelay: "0ms" }}
             >
-              <Image
+              <OptimizedImage
                 src='/placeholder-logo.svg'
                 alt='ASCII Web'
                 width={48}
                 height={48}
                 className='h-12 w-auto'
+                priority={true}
               />
               <span
                 className='glitch-text text-2xl font-bold text-terminal-green tracking-tight'

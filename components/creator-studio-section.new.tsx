@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { GlitchVariation } from "@/components/ui/glitch-variations";
 import { Terminal } from "lucide-react";
+import Link from "next/link";
 
 export function CreatorStudioSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -22,12 +23,11 @@ export function CreatorStudioSection() {
                   transform your ideas into stunning ASCII masterpieces.
                 </p>
                 <div className='flex flex-col sm:flex-row gap-4'>
-                  <button className='px-8 py-3 bg-terminal-green text-black font-bold rounded hover:bg-terminal-green/90 transition-colors'>
-                    Try Now
-                  </button>
-                  <button className='px-8 py-3 border border-terminal-green text-terminal-green rounded hover:bg-terminal-green/10 transition-colors'>
-                    Learn More
-                  </button>
+                  <Link href='/dashboard'>
+                    <button className='px-8 py-3 bg-terminal-green text-black font-bold rounded hover:bg-terminal-green/90 transition-colors'>
+                      Try Now
+                    </button>
+                  </Link>
                 </div>
               </div>
             </GlitchVariation>

@@ -3,11 +3,12 @@
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useDashboard } from "./dashboard-router";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { usePathname } from "next/navigation";
 
 export function UserSettings() {
-  const { currentSubPage } = useDashboard();
+  const pathname = usePathname();
+  const currentSubPage = pathname.split("/")[3] || "profile";
 
   const renderSettingsContent = () => {
     switch (currentSubPage) {

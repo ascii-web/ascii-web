@@ -1,8 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
-import { DashboardLayout } from "@/components/dashboard/dashboard-layout";
-import { ProjectsSidebar } from "@/components/dashboard/projects-sidebar";
+import { useState } from "react";
 import { ProjectsManager } from "@/components/dashboard/projects-manager";
 import { ProjectDetailsPanel } from "@/components/dashboard/project-details-panel";
 
@@ -17,26 +15,24 @@ interface Project {
   size: string;
 }
 
-function ProjectsContent() {
+export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <>
-      <ProjectsSidebar />
-      <ProjectsManager onProjectSelect={setSelectedProject} />
-      <ProjectDetailsPanel selectedProject={selectedProject} />
-    </>
-  );
-}
-
-export default function ProjectsPage() {
-  return (
-    <Suspense
-      fallback={
-        <div className='p-4 text-terminal-green'>Loading projects...</div>
-      }
-    >
-      <ProjectsContent />
-    </Suspense>
+    <div className='container mx-auto p-6'>
+      <h1 className='text-3xl font-bold text-terminal-green mb-6'>
+        My Projects
+      </h1>
+      <div className='flex gap-4'>
+        <div className='flex-1'>
+          <ProjectsManager onProjectSelect={setSelectedProject} />
+        </div>
+        {selectedProject && (
+          <div className='w-1/3'>
+            <ProjectDetailsPanel selectedProject={selectedProject} />
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

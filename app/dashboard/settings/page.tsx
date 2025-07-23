@@ -1,14 +1,7 @@
-import { DashboardLayout } from "@/components/dashboard/dashboard-layout"
-import { SettingsSidebar } from "@/components/dashboard/settings-sidebar"
-import { UserSettings } from "@/components/dashboard/user-settings"
-import { SettingsPanel } from "@/components/dashboard/settings-panel"
+"use client";
+
+import { redirect } from "next/navigation";
 
 export default function SettingsPage() {
-  return (
-    <DashboardLayout>
-      <SettingsSidebar />
-      <UserSettings />
-      <SettingsPanel />
-    </DashboardLayout>
-  )
+  redirect("/dashboard/settings/profile");
 }

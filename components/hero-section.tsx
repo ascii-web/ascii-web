@@ -78,7 +78,7 @@ export function HeroSection() {
       />
 
       {/* Content */}
-      <div className='relative z-10 text-center px-4 max-w-4xl mx-auto scan-lines'>
+      <div className='relative z-10 text-center px-4 max-w-5xl mx-auto scan-lines'>
         <GlitchContainer>
           <GlitchText
             text='Transform Imagination Into ASCII & AI Masterpieces'

@@ -1,13 +1,16 @@
 "use client";
 
 import { AuthGuard } from "@/components/auth/auth-guard";
-import { DashboardProvider } from "@/components/dashboard/dashboard-context";
+import { DashboardSidebar } from "@/components/dashboard/dashboard-sidebar";
 import type { ReactNode } from "react";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <AuthGuard>
-      <DashboardProvider>{children}</DashboardProvider>
+      <div className='flex h-screen bg-black'>
+        <DashboardSidebar />
+        <main className='flex-1 w-full overflow-y-auto'>{children}</main>
+      </div>
     </AuthGuard>
   );
 }

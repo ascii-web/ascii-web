@@ -1,19 +1,14 @@
 "use client";
 
-import { Suspense } from "react";
-import { DashboardRouter } from "@/components/dashboard/dashboard-router";
-import { DashboardSidebar } from "@/components/dashboard/dashboard-sidebar";
+import { ProjectsManager } from "@/components/dashboard/projects-manager";
 
 export default function DashboardPage() {
   return (
-    <DashboardRouter>
-      <Suspense
-        fallback={
-          <div className='p-4 text-terminal-green'>Loading dashboard...</div>
-        }
-      >
-        <DashboardSidebar />
-      </Suspense>
-    </DashboardRouter>
+    <div className=' w-full p-6'>
+      <h1 className='text-3xl font-bold text-terminal-green mb-6'>
+        Dashboard Overview
+      </h1>
+      <ProjectsManager />
+    </div>
   );
 }
