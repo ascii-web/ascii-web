@@ -14,10 +14,10 @@ import { AboutSection } from "@/components/about-section.new";
 import { TestimonialsSection } from "@/components/testimonials-section.new";
 import { FAQSection } from "@/components/faq-section.new";
 import { ContactSection } from "@/components/contact-section.new";
-import { SuccessStoriesSection } from "@/components/success-stories-section";
-import { BlogSection } from "@/components/blog-section";
-import { LatestProjectsSection } from "@/components/latest-projects-section";
-import { PricingCalculator } from "@/components/pricing-calculator";
+import { SuccessStoriesSection } from "@/components/success-stories-section.new";
+import { BlogSection } from "@/components/blog-section.new";
+import { LatestProjectsSection } from "@/components/latest-projects-section.new";
+import { PricingCalculator } from "@/components/pricing-calculator.new";
 
 export default function HomePage() {
   return (

@@ -14,37 +14,39 @@ import { GlitchVariation } from "@/components/ui/glitch-variations";
 const features = [
   {
     icon: Brain,
-    title: "AI-Powered Generation",
+    title: "AI-Powered Creation",
     description:
-      "Advanced neural networks transform your ideas into ASCII masterpieces",
+      "Create ASCII art, poems, code art, and MIDI visualizations with advanced AI",
   },
   {
     icon: ImageIcon,
-    title: "Image to ASCII",
+    title: "Image Tools",
     description:
-      "Convert any image into stunning ASCII art with intelligent mapping",
+      "Generate custom images or convert existing ones into ASCII with intelligent mapping",
   },
   {
     icon: Palette,
-    title: "Style Customization",
+    title: "Style Control",
     description:
-      "Fine-tune your ASCII art with custom character sets and styles",
+      "Choose from realistic, animated, or graphic styles with cinematic lighting effects",
   },
   {
     icon: Sparkles,
-    title: "Real-time Preview",
-    description: "See your ASCII art come to life as you make adjustments",
+    title: "Advanced Settings",
+    description:
+      "Fine-tune creativity, complexity, contrast, and character sets for perfect results",
   },
   {
     icon: Code,
-    title: "Export Options",
-    description: "Save your work in multiple formats for various use cases",
+    title: "Multiple Formats",
+    description:
+      "Create in various formats: ASCII art, poems, code patterns, and MIDI visualizations",
   },
   {
     icon: Layers,
-    title: "Version History",
+    title: "Visual Controls",
     description:
-      "Keep track of your creative process with detailed version control",
+      "Adjust aspect ratios, apply vintage effects, and preview in real-time",
   },
 ];
 
@@ -53,28 +55,37 @@ export function FeaturesSection() {
 
   return (
     <section ref={sectionRef} className='py-20 bg-black'>
-      <GlitchVariation variant='wave' delay={0}>
+      <GlitchVariation variant='slice' delay={0}>
         <div className='container mx-auto px-4'>
-          <h2 className='text-4xl md:text-5xl font-bold text-center mb-16 text-terminal-green'>
-            Powerful Features
-          </h2>
+          <GlitchVariation variant='digital' delay={100}>
+            <h2 className='text-4xl md:text-5xl font-bold text-center mb-16 text-terminal-green'>
+              Powerful Features
+            </h2>
+          </GlitchVariation>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {features.map((feature, index) => (
               <GlitchVariation
                 key={feature.title}
-                variant='wave'
-                delay={200 + index * 100}
+                variant={index % 2 === 0 ? "matrix" : "digital"}
+                delay={200 + index * 150}
                 className='h-full'
               >
-                <div className='bg-gray-900 p-6 rounded-lg border border-terminal-green/30 h-full transform transition-transform hover:scale-[1.02]'>
-                  <div className='flex items-center gap-4 mb-4'>
-                    <feature.icon className='w-8 h-8 text-terminal-green' />
-                    <h3 className='text-xl font-bold text-terminal-green'>
-                      {feature.title}
-                    </h3>
-                  </div>
-                  <p className='text-gray-400'>{feature.description}</p>
+                <div className='relative overflow-hidden'>
+                  <GlitchVariation
+                    variant={index % 2 === 0 ? "slice" : "wave"}
+                    delay={300 + index * 150}
+                  >
+                    <div className='bg-gray-900 p-6 rounded-lg border border-terminal-green/30 h-full transform transition-all hover:scale-[1.02] hover:border-terminal-green'>
+                      <div className='flex items-center gap-4 mb-4'>
+                        <feature.icon className='w-8 h-8 text-terminal-green' />
+                        <h3 className='text-xl font-bold text-terminal-green'>
+                          {feature.title}
+                        </h3>
+                      </div>
+                      <p className='text-gray-400'>{feature.description}</p>
+                    </div>
+                  </GlitchVariation>
                 </div>
               </GlitchVariation>
             ))}

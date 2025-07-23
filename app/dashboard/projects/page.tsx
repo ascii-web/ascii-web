@@ -20,9 +20,6 @@ export default function ProjectsPage() {
 
   return (
     <div className='container mx-auto p-6'>
-      <h1 className='text-3xl font-bold text-terminal-green mb-6'>
-        My Projects
-      </h1>
       <div className='flex gap-4'>
         <div className='flex-1'>
           <ProjectsManager onProjectSelect={setSelectedProject} />

@@ -1,7 +1,18 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Upload } from "lucide-react"
+import { 
+  Upload,
+  PenTool, 
+  Settings2, 
+  Save, 
+  Share2,
+  Sparkles,
+  ImageIcon,
+  TextSelect,
+  Code,
+  Music
+} from "lucide-react"
 import { GlitchText, GlitchContainer } from "@/components/ui/glitch-effects"
 
 export function HowItWorksSection() {
@@ -85,27 +96,45 @@ export function HowItWorksSection() {
             <GlitchContainer delay={400}>
               <div className="relative bg-gray-900 border border-magenta/30 rounded-lg p-6 transform transition-transform hover:scale-[1.02]">
                 <div className="absolute -top-3 left-6 bg-black px-3 py-1 border border-magenta/50 rounded">
-                  <GlitchText text="AI Core" className="text-magenta text-sm font-semibold" />
+                  <GlitchText text="2. Customize & Create" className="text-magenta text-sm font-semibold" />
+                </div>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-black/50 p-3 rounded border border-magenta/20">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Settings2 className="w-5 h-5 text-magenta" />
+                        <span className="text-gray-300">Style Options</span>
+                      </div>
+                      <div className="text-xs text-gray-400">
+                        • Default
+                        • Realistic
+                        • Animated
+                        • Graphic
+                      </div>
+                    </div>
+                    <div className="bg-black/50 p-3 rounded border border-magenta/20">
+                      <div className="flex items-center gap-2 mb-2">
+                        <PenTool className="w-5 h-5 text-magenta" />
+                        <span className="text-gray-300">Fine-Tuning</span>
+                      </div>
+                      <div className="text-xs text-gray-400">
+                        • Creativity Level
+                        • Complexity
+                        • Character Set
+                        • Aspect Ratio
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="mt-4">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-magenta"></div>
-                  </div>
-
-                  <h3 className="text-xl font-bold mb-4">
-                    <GlitchText text="2. Deep Learning Engine" className="text-magenta" />
-                  </h3>
-
                   <div className="bg-black p-4 rounded border border-gray-700 mb-4 relative overflow-hidden">
                     <NeuralNetwork isVisible={lineProgress > 0} />
                   </div>
 
                   <GlitchContainer delay={100}>
                     <p className="text-gray-400 text-sm">
-                      Our model, trained on curated ASCII subsets, analyzes your input for structure, tone, and detail.
+                      Fine-tune your creation with precise controls and style options.
                     </p>
                   </GlitchContainer>
                 </div>
@@ -116,7 +145,7 @@ export function HowItWorksSection() {
             <GlitchContainer delay={600}>
               <div className="relative bg-gray-900 border border-terminal-green/30 rounded-lg p-6 transform transition-transform hover:scale-[1.02]">
                 <div className="absolute -top-3 left-6 bg-black px-3 py-1 border border-terminal-green/50 rounded">
-                  <GlitchText text="Output Terminal" className="text-terminal-green text-sm font-semibold" />
+                  <GlitchText text="3. Save & Share" className="text-terminal-green text-sm font-semibold" />
                 </div>
 
                 <div className="mt-4">
@@ -127,22 +156,58 @@ export function HowItWorksSection() {
                   </div>
 
                   <h3 className="text-xl font-bold mb-4">
-                    <GlitchText text="3. ASCII Generation" className="text-terminal-green" />
+                    <GlitchText text="Manage Your Creation" className="text-terminal-green" />
                   </h3>
+
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="bg-black/50 p-3 rounded border border-terminal-green/20">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Save className="w-5 h-5 text-terminal-green" />
+                        <span className="text-gray-300">Save Options</span>
+                      </div>
+                      <div className="text-xs text-gray-400">
+                        • Save to Gallery
+                        • Export as File
+                        • Create Template
+                        • Version History
+                      </div>
+                    </div>
+                    <div className="bg-black/50 p-3 rounded border border-terminal-green/20">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Share2 className="w-5 h-5 text-terminal-green" />
+                        <span className="text-gray-300">Share Options</span>
+                      </div>
+                      <div className="text-xs text-gray-400">
+                        • Public Gallery
+                        • Private Link
+                        • Download
+                        • Embed Code
+                      </div>
+                    </div>
+                  </div>
 
                   <div className="bg-black p-4 rounded border border-gray-700 mb-4">
                     <pre className="text-terminal-green text-xs leading-tight">
-                      {`    ╭─────────╮
-    │  ◉   ◉  │
-    │    ∩    │
-    │  \\___/  │
-    ╰─────────╯`}
+                      {`> Preview of your creation:
+    
+┌────────────────────┐
+│    ASCII STUDIO    │
+├────────────────────┤
+│  ▄▄▄   ▄▄▄   ▄▄▄   │
+│  ███   ███   ███   │
+│  ▀▀▀   ▀▀▀   ▀▀▀   │
+└────────────────────┘
+
+> Status: Ready to export
+> Format: Animated ASCII
+> Resolution: 32x16
+> Style: Graphic`}
                     </pre>
                   </div>
 
                   <GlitchContainer delay={100}>
                     <p className="text-gray-400 text-sm">
-                      Your unique, high-fidelity ASCII artwork is generated, ready to be shared or downloaded.
+                      Preview your creation, then save and share it with the world.
                     </p>
                   </GlitchContainer>
                 </div>

@@ -65,21 +65,21 @@ export function TerminalDemo({
   }, []);
 
   // Focus management
-  // useEffect(() => {
-  //   const focusInput = () => {
-  //     inputRef.current?.focus();
-  //   };
+  useEffect(() => {
+    const focusInput = () => {
+      inputRef.current?.focus();
+    };
 
-  //   // Focus on mount
-  //   focusInput();
+    // Focus on mount
+    focusInput();
 
-  //   // Refocus when clicking anywhere in the terminal
-  //   terminalRef.current?.addEventListener("click", focusInput);
+    // Refocus when clicking anywhere in the terminal
+    terminalRef.current?.addEventListener("click", focusInput);
 
-  //   return () => {
-  //     terminalRef.current?.removeEventListener("click", focusInput);
-  //   };
-  // }, []);
+    return () => {
+      terminalRef.current?.removeEventListener("click", focusInput);
+    };
+  }, []);
 
   // Auto scroll to bottom
   useEffect(() => {
@@ -218,11 +218,11 @@ Type 'generate [number]' to try one!`;
             if (lastCommand) setInput(lastCommand);
           }
         }}
-        // onBlur={(e) => {
-        //   // Prevent focus loss
-        //   e.target.focus();
-        // }}
-        // autoFocus
+        onBlur={(e) => {
+          // Prevent focus loss
+          e.target.focus();
+        }}
+        autoFocus
       />
     </div>
   );

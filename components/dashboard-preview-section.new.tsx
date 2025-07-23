@@ -5,10 +5,23 @@ import { GlitchVariation } from "@/components/ui/glitch-variations";
 import {
   Layout,
   Settings,
-  Image,
   Terminal,
   PenTool,
   BarChart,
+  Folder,
+  History,
+  Share2,
+  Save,
+  Download,
+  Grid,
+  Sparkles,
+  ImageIcon,
+  Code,
+  Music,
+  TextSelect,
+  MonitorPlay,
+  Sliders,
+  Ratio,
 } from "lucide-react";
 
 export function DashboardPreviewSection() {
@@ -17,23 +30,43 @@ export function DashboardPreviewSection() {
   const features = [
     {
       icon: Layout,
-      title: "Intuitive Interface",
-      description: "Clean and efficient workspace for your creative process",
+      title: "Workspace Layout",
+      description: "Customizable split-view with live preview",
     },
     {
-      icon: PenTool,
-      title: "Advanced Tools",
-      description: "Professional-grade tools for perfect ASCII art creation",
+      icon: Grid,
+      title: "Project Gallery",
+      description: "Organize and showcase your ASCII creations",
     },
     {
       icon: Terminal,
       title: "Command Center",
-      description: "Power-user features with terminal-like controls",
+      description: "Terminal interface with shortcut commands",
     },
     {
-      icon: BarChart,
-      title: "Analytics",
-      description: "Track your progress and artwork performance",
+      icon: History,
+      title: "Version History",
+      description: "Track changes and restore previous versions",
+    },
+    {
+      icon: Share2,
+      title: "Quick Share",
+      description: "Share your work directly or via custom links",
+    },
+    {
+      icon: Save,
+      title: "Auto-Save",
+      description: "Never lose your progress with auto-saving",
+    },
+    {
+      icon: Download,
+      title: "Export Options",
+      description: "Export as text, image, or animated GIF",
+    },
+    {
+      icon: Folder,
+      title: "Project Management",
+      description: "Organize works into collections and folders",
     },
   ];
 
@@ -88,12 +121,20 @@ export function DashboardPreviewSection() {
                     <div className='grid grid-cols-3 gap-4'>
                       <div className='col-span-2 bg-black/30 p-4 rounded'>
                         <pre className='text-terminal-green text-xs'>
-                          {`> Project Statistics
-┌──────────────┐
-│ Projects: 12 │
-│ Commits: 47  │
-│ Stars: 238   │
-└──────────────┘`}
+                          {`> Dashboard Overview
+┌─────────────────────┐
+│ Active Projects: 12 │
+│ Saved Versions: 47  │
+│ Templates: 15       │
+│ Shared Works: 8     │
+│ Storage: 85% free   │
+└─────────────────────┘
+
+> Recent Activity
+- Created new ASCII art
+- Updated profile theme
+- Exported gallery
+- Shared artwork`}
                         </pre>
                       </div>
                       <div className='bg-black/30 p-4 rounded'>

@@ -1,0 +1,145 @@
+interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  category: string[];
+  readTime: string;
+  image: string;
+  asciiPreview: string;
+  author: {
+    name: string;
+    avatar: string;
+    role: string;
+    bio: string;
+  };
+  content: {
+    introduction: string;
+    sections: {
+      title: string;
+      content: string;
+      codeExample?: string;
+    }[];
+    conclusion: string;
+  };
+}
+
+// Sort blog posts by date function
+const sortByDate = (posts: BlogPost[]) => 
+  [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: "1",
+    slug: "evolution-of-ascii-art-in-modern-web-design",
+    title: "The Evolution of ASCII Art in Modern Web Design",
+    excerpt: "Discover how ASCII art is making a comeback in contemporary web design and digital branding...",
+    date: "2025-07-22",
+    category: ["Design Trends", "Case Studies"],
+    readTime: "8 min",
+    image: "/optimized/blog/ascii-evolution.jpg",
+    asciiPreview: "╔═══════════╗\n║  MODERN   ║\n║   ASCII   ║\n║    ART    ║\n╚═══════════╝",
+    author: {
+      name: "Sarah Chen",
+      avatar: "/avatars/sarah-chen.jpg",
+      role: "Design Lead",
+      bio: "Sarah is a design lead with over 10 years of experience in digital design and creative technology. She specializes in bridging the gap between retro computing aesthetics and modern web experiences."
+    },
+    content: {
+      introduction: "ASCII art, born in the early days of computing, is experiencing an unexpected renaissance in modern web design. This resurgence isn't merely nostalgia – it represents a fascinating intersection of retro computing aesthetics and contemporary digital experiences.",
+      sections: [
+        {
+          title: "The Historical Context",
+          content: "ASCII art emerged in the 1960s when computer systems were limited to text-based displays. What began as a practical solution for creating graphics using available characters evolved into an art form. Early bulletin board systems (BBS) and email systems heavily utilized ASCII art for everything from logos to elaborate illustrations."
+        },
+        {
+          title: "The Modern Revival",
+          content: "Today's revival of ASCII art in web design isn't about limitations – it's about creative choice. Modern designers are incorporating ASCII elements to create unique, memorable experiences that stand out in an era of polished, sometimes sterile digital interfaces."
+        },
+        {
+          title: "Technical Implementation",
+          content: "Modern ASCII art implementation in web design goes far beyond simple pre-formatted text blocks. Designers are now using advanced CSS and JavaScript to create responsive, interactive ASCII elements that scale and adapt to different screen sizes.",
+          codeExample: "const AsciiArt = styled.pre`\n  font-family: monospace;\n  line-height: 1.2;\n  letter-spacing: 0.1em;\n  @media (max-width: 768px) {\n    font-size: 0.8em;\n  }\n`;"
+        }
+      ],
+      conclusion: "As we continue to see the evolution of web design, ASCII art represents more than just a throwback to computing's early days. It's a reminder that creativity often flourishes within constraints."
+    }
+  },
+  {
+    id: "2",
+    slug: "mastering-ai-powered-ascii-art-generation",
+    title: "Mastering AI-Powered ASCII Art Generation",
+    excerpt: "Deep dive into the world of AI-assisted ASCII art creation, exploring advanced techniques and best practices...",
+    date: "2025-07-21",
+    category: ["AI & Tech", "Tutorials"],
+    readTime: "12 min",
+    image: "/optimized/blog/ai-ascii.jpg",
+    asciiPreview: "  _____   _\n |_   _| /\\\\   ___\n   | |  /  \\\\ / __|\n   | | / /\\\\ \\\\__ \\\n   |_|/_/  \\_\\___/",
+    author: {
+      name: "Dr. Maya Patel",
+      avatar: "/avatars/maya-patel.jpg",
+      role: "AI Research Lead",
+      bio: "Dr. Maya Patel leads AI research at ASCII Web, focusing on the intersection of artificial intelligence and creative expression. She holds a Ph.D. in Computer Science with a specialization in generative AI systems."
+    },
+    content: {
+      introduction: "The intersection of artificial intelligence and ASCII art represents a fascinating evolution in digital creativity. As AI technologies advance, we're discovering new ways to generate, manipulate, and optimize ASCII art that pushes the boundaries of what's possible.",
+      sections: [
+        {
+          title: "Understanding AI-Powered ASCII Art Generation",
+          content: "AI-powered ASCII art generation uses sophisticated neural networks trained on vast datasets of images and their ASCII representations. These systems learn to recognize patterns, understand visual hierarchies, and make intelligent decisions about character placement."
+        },
+        {
+          title: "Deep Learning Architectures",
+          content: "Modern ASCII art generation relies heavily on convolutional neural networks (CNNs) and transformer architectures. These systems analyze input images at multiple levels of abstraction.",
+          codeExample: "async function generateAsciiArt(image) {\n  const model = await loadAsciiModel();\n  return model.predict(preprocessImage(image));\n}"
+        }
+      ],
+      conclusion: "AI-powered ASCII art generation represents a perfect fusion of traditional text art and modern technology. The future promises even more exciting possibilities as we continue to push the boundaries of what's possible."
+    }
+  },
+  {
+    id: "3",
+    slug: "future-of-creative-coding-ascii-art",
+    title: "The Future of Creative Coding: ASCII Art in Interactive Experiences",
+    excerpt: "Explore how creative coders are pushing the boundaries of ASCII art in interactive digital experiences...",
+    date: "2025-07-20",
+    category: ["Creative Coding", "Innovation"],
+    readTime: "10 min",
+    image: "/optimized/blog/creative-coding.jpg",
+    asciiPreview: " /\\\\ /\\\\\n( o.o )\n > ^ <",
+    author: {
+      name: "Marcus Wong",
+      avatar: "/avatars/marcus-wong.jpg",
+      role: "Creative Technologist",
+      bio: "Marcus is a creative technologist specializing in interactive installations and digital experiences. With a background in both art and computer science, he creates unique digital experiences that bridge technology and creativity."
+    },
+    content: {
+      introduction: "Creative coding has revolutionized the way we think about ASCII art, transforming it from static text displays into dynamic, interactive experiences.",
+      sections: [
+        {
+          title: "Interactive ASCII Art",
+          content: "Interactive ASCII art represents a new frontier in digital expression, where text-based graphics respond to user input, environmental data, or real-time events."
+        },
+        {
+          title: "Real-time Animation",
+          content: "Modern browsers and JavaScript engines enable smooth, real-time ASCII animations using requestAnimationFrame and WebGL.",
+          codeExample: "class AsciiAnimation {\n  animate() {\n    requestAnimationFrame(() => {\n      this.update();\n      this.render();\n      this.animate();\n    });\n  }\n}"
+        }
+      ],
+      conclusion: "The future of creative coding in ASCII art is bright, with new technologies and techniques emerging regularly. As browsers become more powerful and new APIs become available, we can expect to see even more innovative uses of ASCII art in interactive digital experiences."
+    }
+  }
+];
+
+export const getAllBlogPosts = () => sortByDate(BLOG_POSTS);
+
+export const getBlogPost = (slug: string) => 
+  BLOG_POSTS.find(post => post.slug === slug);
+
+export const getRecentBlogPosts = (count: number = 3) => 
+  sortByDate(BLOG_POSTS).slice(0, count);
+
+export const BLOG_CATEGORIES = Array.from(
+  new Set(BLOG_POSTS.flatMap(post => post.category))
+).sort();

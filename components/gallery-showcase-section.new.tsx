@@ -3,11 +3,15 @@
 import { useState } from "react";
 import { Copy, Download, Share2, ArrowRight } from "lucide-react";
 import { GlitchVariation } from "@/components/ui/glitch-variations";
+import Link from "next/link";
 
 type ContentType =
   | "all"
   | "ascii-art"
   | "poetry"
+  | "code-pattern"
+  | "midi-visual"
+  | "animated"
   | "code"
   | "generated-image"
   | "ascii-realistic"
@@ -148,10 +152,12 @@ export function GalleryShowcaseSection() {
 
           <GlitchVariation variant='matrix' delay={800}>
             <div className='text-center mt-12'>
-              <button className='px-8 py-3 bg-terminal-green text-black font-bold rounded hover:bg-terminal-green/90 transition-colors inline-flex items-center gap-2 group'>
-                Explore Full Gallery
-                <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
-              </button>
+              <Link href='/dashboard/gallery/'>
+                <button className='px-8 py-3 bg-terminal-green text-black font-bold rounded hover:bg-terminal-green/90 transition-colors inline-flex items-center gap-2 group'>
+                  Explore Full Gallery
+                  <ArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
+                </button>
+              </Link>
             </div>
           </GlitchVariation>
         </div>

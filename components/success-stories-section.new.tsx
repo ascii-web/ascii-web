@@ -30,6 +30,11 @@ interface SuccessStory {
     icon: "trending-up" | "users" | "award";
   }[];
   quote: string;
+  socialLinks?: {
+    twitter?: string;
+    github?: string;
+    portfolio?: string;
+  };
   tags: string[];
   artworks: string[];
 }
@@ -54,6 +59,11 @@ const SUCCESS_STORIES: SuccessStory[] = [
     ],
     quote:
       "ASCII art gave me a unique voice in game development. It's not just about nostalgia; it's about creating experiences that stand out in today's oversaturated market.",
+    socialLinks: {
+      twitter: "https://twitter.com/alexrivera",
+      github: "https://github.com/alexrivera",
+      portfolio: "https://alexrivera.dev",
+    },
     tags: ["Gaming", "Indie Dev", "Pixel Art"],
     artworks: [
       "/gallery/alex-1.png",
@@ -80,6 +90,10 @@ const SUCCESS_STORIES: SuccessStory[] = [
     ],
     quote:
       "ASCII art bridges the gap between traditional and digital art. It's a perfect medium for teaching fundamentals while embracing modern technology.",
+    socialLinks: {
+      twitter: "https://twitter.com/meizhang",
+      portfolio: "https://meizhang.art",
+    },
     tags: ["Digital Art", "Education", "Cultural Fusion"],
     artworks: [
       "/gallery/mei-1.png",
@@ -106,6 +120,11 @@ const SUCCESS_STORIES: SuccessStory[] = [
     ],
     quote:
       "ASCII art isn't just about creating visuals; it's about making the web more engaging and personal. Every project becomes a unique expression.",
+    socialLinks: {
+      twitter: "https://twitter.com/jordantaylor",
+      github: "https://github.com/jordantaylor",
+      portfolio: "https://jordantaylor.dev",
+    },
     tags: ["Web Dev", "Creative Coding", "Open Source"],
     artworks: [
       "/gallery/jordan-1.png",
@@ -298,6 +317,40 @@ export function SuccessStoriesSection() {
                     <p className='text-gray-400 italic mb-6'>
                       {SUCCESS_STORIES[openStory].quote}
                     </p>
+                    <div className='flex gap-4'>
+                      {SUCCESS_STORIES[openStory].socialLinks?.twitter && (
+                        <a
+                          href={SUCCESS_STORIES[openStory].socialLinks.twitter}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='text-terminal-green hover:text-terminal-green/80'
+                        >
+                          Twitter
+                        </a>
+                      )}
+                      {SUCCESS_STORIES[openStory].socialLinks?.github && (
+                        <a
+                          href={SUCCESS_STORIES[openStory].socialLinks.github}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='text-terminal-green hover:text-terminal-green/80'
+                        >
+                          GitHub
+                        </a>
+                      )}
+                      {SUCCESS_STORIES[openStory].socialLinks?.portfolio && (
+                        <a
+                          href={
+                            SUCCESS_STORIES[openStory].socialLinks.portfolio
+                          }
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='text-terminal-green hover:text-terminal-green/80'
+                        >
+                          Portfolio
+                        </a>
+                      )}
+                    </div>
                   </Card>
                 </div>
               </div>
