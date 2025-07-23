@@ -54,6 +54,7 @@ export function GlitchText({
       className={`glitch-text ${className} ${inView ? "fade-in-glitch" : ""}`}
       style={{ animationDelay: `${delay}ms` }}
       data-text={text}
+      // dangerouslySetInnerHTML={{ __html: text }}
     >
       {text}
     </span>

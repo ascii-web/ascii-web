@@ -64,16 +64,15 @@ export function TerminalDemo({
     return () => clearInterval(interval);
   }, []);
 
-  // Focus management
+  // Focus management - only when clicking on the terminal
   useEffect(() => {
-    const focusInput = () => {
-      inputRef.current?.focus();
+    const focusInput = (e: MouseEvent) => {
+      // Only focus if we're clicking inside the terminal
+      if (terminalRef.current?.contains(e.target as Node)) {
+        inputRef.current?.focus();
+      }
     };
 
-    // Focus on mount
-    focusInput();
-
-    // Refocus when clicking anywhere in the terminal
     terminalRef.current?.addEventListener("click", focusInput);
 
     return () => {
@@ -218,11 +217,6 @@ Type 'generate [number]' to try one!`;
             if (lastCommand) setInput(lastCommand);
           }
         }}
-        onBlur={(e) => {
-          // Prevent focus loss
-          e.target.focus();
-        }}
-        autoFocus
       />
     </div>
   );

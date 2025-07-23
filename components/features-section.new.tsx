@@ -59,7 +59,7 @@ export function FeaturesSection() {
         <div className='container mx-auto px-4'>
           <GlitchVariation variant='digital' delay={100}>
             <h2 className='text-4xl md:text-5xl font-bold text-center mb-16 text-terminal-green'>
-              Powerful Features
+              The Creative Powerhouse
             </h2>
           </GlitchVariation>
 

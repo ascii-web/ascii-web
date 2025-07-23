@@ -1,16 +1,43 @@
 "use client";
-
 import { useState } from "react";
 import { X } from "lucide-react";
-
 export function AIAssistantWidget() {
   const [isOpen, setIsOpen] = useState(false);
-
-  // Much cleaner, minified robot ASCII
+  const [inputValue, setInputValue] = useState("");
+  const [messages, setMessages] = useState([
+    {
+      text: "👋 Hi! I'm your ASCII art assistant. I can help you:...",
+      isUser: false,
+    },
+    { text: "What would you like to create today?", isUser: false },
+  ]);
   const robotAscii = `◉ ◉
- ∩ 
-───`;
-
+ _ ∩ _ 
+ ───`;
+  const handleSend = () => {
+    if (inputValue.trim()) {
+      setMessages([...messages, { text: inputValue, isUser: true }]);
+      setInputValue("");
+      // Here you would add the logic for the AI to respond.
+      // For this example, let's add a canned response.
+      setTimeout(() => {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { text: "I'm processing your request...", isUser: false },
+        ]);
+      }, 1000);
+    }
+  };
+  const handleQuickAction = (text: any) => {
+    setMessages([...messages, { text, isUser: true }]);
+    // AI response logic here
+    setTimeout(() => {
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: `Generating ${text}...`, isUser: false },
+      ]);
+    }, 1000);
+  };
   return (
     <>
       {/* Chat Bubble */}
@@ -24,13 +51,14 @@ export function AIAssistantWidget() {
           ) : (
             <div className='flex items-center justify-center'>
               <div className='text-magenta text-xs leading-tight font-mono'>
-                <pre>{robotAscii}</pre>
+                <pre className='leading-5'>{robotAscii}</pre>
               </div>
             </div>
           )}
-
           {/* Notification dot */}
-          <div className='absolute -top-1 -right-1 w-3 h-3 bg-terminal-green rounded-full animate-pulse'></div>
+          {!isOpen && (
+            <div className='absolute -top-1 -right-1 w-3 h-3 bg-terminal-green rounded-full animate-pulse'></div>
+          )}
         </button>
 
         {/* Chat Window */}
@@ -41,7 +69,7 @@ export function AIAssistantWidget() {
               <div className='flex items-center gap-3'>
                 <div className='w-8 h-8 bg-magenta/20 rounded-full flex items-center justify-center border border-magenta/30'>
                   <div className='text-magenta text-xs leading-tight font-mono'>
-                    <pre>{robotAscii}</pre>
+                    <pre>A</pre>
                   </div>
                 </div>
                 <div>
@@ -59,38 +87,24 @@ export function AIAssistantWidget() {
             {/* Chat Content */}
             <div className='p-4 h-64 overflow-y-auto'>
               <div className='space-y-4'>
-                <div className='bg-gray-800 rounded-lg p-3 max-w-xs'>
-                  <p className='text-gray-300 text-sm'>
-                    👋 Hi! I'm your ASCII art assistant. I can help you:
-                  </p>
-                  <ul className='text-gray-400 text-xs mt-2 space-y-1'>
-                    <li>• Generate custom ASCII art</li>
-                    <li>• Convert images to ASCII</li>
-                    <li>• Create AI-generated images</li>
-                    <li>• Explain our AI models</li>
-                    <li>• Guide you through features</li>
-                    <li>• Answer technical questions</li>
-                  </ul>
-                </div>
-
-                <div className='bg-gray-800 rounded-lg p-3 max-w-xs'>
-                  <p className='text-terminal-green text-sm'>
-                    What would you like to create today?
-                  </p>
-                </div>
-
-                {/* Quick Action Buttons */}
-                <div className='flex flex-wrap gap-2'>
-                  <button className='bg-gray-700 hover:bg-terminal-green hover:text-black text-gray-300 text-xs px-3 py-1 rounded-full transition-colors'>
-                    Generate Art
-                  </button>
-                  <button className='bg-gray-700 hover:bg-magenta hover:text-black text-gray-300 text-xs px-3 py-1 rounded-full transition-colors'>
-                    Generate Image
-                  </button>
-                  <button className='bg-gray-700 hover:bg-blue-500 hover:text-black text-gray-300 text-xs px-3 py-1 rounded-full transition-colors'>
-                    View Gallery
-                  </button>
-                </div>
+                {messages.map((msg, index) => (
+                  <div
+                    key={index}
+                    className={`flex ${
+                      msg.isUser ? "justify-end" : "justify-start"
+                    }`}
+                  >
+                    <div
+                      className={`rounded-lg p-3 max-w-xs ${
+                        msg.isUser
+                          ? "bg-magenta text-black"
+                          : "bg-gray-800 text-gray-300"
+                      }`}
+                    >
+                      <p className='text-sm'>{msg.text}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -100,10 +114,37 @@ export function AIAssistantWidget() {
                 <input
                   type='text'
                   placeholder='Type your message...'
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyPress={(e) => e.key === "Enter" && handleSend()}
                   className='flex-1 bg-gray-800 border border-gray-600 rounded px-3 py-2 text-sm text-white placeholder-gray-400 focus:border-terminal-green focus:outline-none'
                 />
-                <button className='bg-magenta text-black px-3 py-2 rounded text-sm font-semibold hover:bg-magenta/90 transition-colors'>
+                <button
+                  onClick={handleSend}
+                  className='bg-magenta text-black px-3 py-2 rounded text-sm font-semibold hover:bg-magenta/90 transition-colors'
+                >
                   Send
+                </button>
+              </div>
+              {/* Quick Action Buttons */}
+              <div className='flex flex-wrap gap-2 mt-2'>
+                <button
+                  onClick={() => handleQuickAction("Art")}
+                  className='bg-gray-700 hover:bg-terminal-green hover:text-black text-gray-300 text-xs px-3 py-1 rounded-full transition-colors'
+                >
+                  Generate Art
+                </button>
+                <button
+                  onClick={() => handleQuickAction("Image")}
+                  className='bg-gray-700 hover:bg-magenta hover:text-black text-gray-300 text-xs px-3 py-1 rounded-full transition-colors'
+                >
+                  Generate Image
+                </button>
+                <button
+                  onClick={() => handleQuickAction("Gallery")}
+                  className='bg-gray-700 hover:bg-blue-500 hover:text-black text-gray-300 text-xs px-3 py-1 rounded-full transition-colors'
+                >
+                  View Gallery
                 </button>
               </div>
             </div>

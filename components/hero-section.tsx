@@ -78,18 +78,19 @@ export function HeroSection() {
       />
 
       {/* Content */}
-      <div className='relative z-10 text-center px-4 max-w-5xl mx-auto scan-lines'>
+      <div className='relative z-10 text-center px-4 max-w-4xl mx-auto scan-lines'>
         <GlitchContainer>
           <GlitchText
-            text='Transform Imagination Into ASCII & AI Masterpieces'
+            text='Crafting the Neural Terminal of ASCII Artistry'
             className='block text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-terminal-green'
           />
         </GlitchContainer>
 
         <GlitchContainer delay={300}>
           <p className='text-lg md:text-xl mb-8 text-gray-300 max-w-2xl mx-auto'>
-            Generate stunning ASCII art from text or images, create captivating
-            AI images, and craft generative poetry and code snippets.
+            Create stunning ASCII from text or a pic and craft AI images that
+            truly click, from generative poems to clever code lines in digital
+            designs.
           </p>
         </GlitchContainer>
 
@@ -100,7 +101,7 @@ export function HeroSection() {
               size='lg'
               asChild
             >
-              <a href='/dashboard/'>Try the Demo (Mockup)</a>
+              <a href='/dashboard/'>Start Creating</a>
             </Button>
           </GlitchContainer>
 
@@ -110,7 +111,7 @@ export function HeroSection() {
             size='lg'
             asChild
           >
-            <a href='#gallery'>Explore the Gallery</a>
+            <a href='#gallery'>Explore Gallery</a>
           </Button>
         </div>
       </div>

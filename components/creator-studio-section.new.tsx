@@ -30,14 +30,14 @@ export function CreatorStudioSection() {
               <div className='space-y-6'>
                 <GlitchVariation variant='matrix' delay={200}>
                   <h2 className='text-4xl md:text-5xl font-bold text-terminal-green'>
-                    Your Creative ASCII Studio
+                    Instant ASCII Magic With Unlimited Creativity
                   </h2>
                 </GlitchVariation>
                 <GlitchVariation variant='wave' delay={300}>
                   <p className='text-gray-400 text-lg'>
-                    Transform your ideas into ASCII masterpieces with our
-                    multi-format creative suite. Generate ASCII art, poems, code
-                    patterns, and even MIDI visualizations.
+                    Our advanced AI-powered studio gives you the essential tools
+                    to effortlessly morph your ideas into stunning, detailed
+                    ASCII masterpieces.
                   </p>
                 </GlitchVariation>
                 <GlitchVariation variant='digital' delay={400}>

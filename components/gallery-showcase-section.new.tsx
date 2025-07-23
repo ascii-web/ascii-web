@@ -64,9 +64,9 @@ const galleryItems: GalleryItem[] = [
     likes: 256,
     content: `    /\\
    /  \\
-  /    \\
- /      \\
-/        \\
+  /    \\   /\\
+ /      \\ /  \\
+/        \\    \\
 ▔▔▔▔▔▔▔▔▔▔`,
     tags: ["nature", "landscape", "minimal"],
   },
@@ -82,7 +82,7 @@ export function GalleryShowcaseSection() {
         <div className='container mx-auto px-4'>
           <div className='text-center mb-12'>
             <h2 className='text-4xl md:text-5xl font-bold text-terminal-green mb-6'>
-              Community Gallery
+              Gallery of Greats
             </h2>
             <p className='text-gray-400 text-lg'>
               Explore amazing ASCII artworks created by our community

@@ -43,10 +43,10 @@ export function FAQSection() {
         <div className='container mx-auto px-4'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl md:text-5xl font-bold text-terminal-green mb-6'>
-              Frequently Asked Questions
+              Support & Solutions
             </h2>
             <p className='text-gray-400 text-lg'>
-              Everything you need to know about our ASCII art platform
+              Get the clarity you need from setup to sharing.
             </p>
           </div>
 

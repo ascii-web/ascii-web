@@ -12,6 +12,7 @@ import {
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useAuth } from "@/lib/firebase-auth";
 import { Mail, Loader2, CheckCircle, RefreshCw } from "lucide-react";
+import Link from "next/link";
 
 export function EmailVerification() {
   const [isLoading, setIsLoading] = useState(false);
@@ -45,13 +46,15 @@ export function EmailVerification() {
     <div className='min-h-screen bg-black text-white font-mono flex items-center justify-center p-4'>
       <Card className='w-full max-w-md mx-auto bg-gray-900 border-gray-700'>
         <CardHeader className='space-y-1'>
-          <div className='text-center mb-4'>
-            <div className='text-terminal-green text-2xl font-bold mb-2'>
-              <pre className='text-sm leading-tight'>{`╔═══════════╗
+          <Link href='/'>
+            <div className='text-center mb-4'>
+              <div className='text-terminal-green text-2xl font-bold mb-2'>
+                <pre className='text-sm leading-tight'>{`╔═══════════╗
 ║ ASCII-WEB ║
 ╚═══════════╝`}</pre>
+              </div>
             </div>
-          </div>
+          </Link>
           <div className='flex items-center justify-center mb-4'>
             <Mail className='h-12 w-12 text-yellow-500' />
           </div>

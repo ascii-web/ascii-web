@@ -25,6 +25,7 @@ import {
   Lock,
   User,
 } from "lucide-react";
+import Link from "next/link";
 
 interface RegisterFormProps {
   onSwitchToLogin: () => void;
@@ -167,13 +168,15 @@ export function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
   return (
     <Card className='w-full max-w-md mx-auto bg-gray-900 border-gray-700'>
       <CardHeader className='space-y-1'>
-        <div className='text-center mb-4'>
-          <div className='text-terminal-green text-2xl font-bold mb-2'>
-            <pre className='text-sm leading-tight'>{`╔═══════════╗
+        <Link href='/'>
+          <div className='text-center mb-4'>
+            <div className='text-terminal-green text-2xl font-bold mb-2'>
+              <pre className='text-sm leading-tight'>{`╔═══════════╗
 ║ ASCII-WEB ║
 ╚═══════════╝`}</pre>
+            </div>
           </div>
-        </div>
+        </Link>
         <CardTitle className='text-2xl font-bold text-center text-white'>
           Create Account
         </CardTitle>

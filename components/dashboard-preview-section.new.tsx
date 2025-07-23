@@ -78,12 +78,12 @@ export function DashboardPreviewSection() {
             <GlitchVariation variant='flicker' delay={200}>
               <div className='space-y-6'>
                 <h2 className='text-4xl md:text-5xl font-bold text-terminal-green'>
-                  Professional Dashboard
+                  ASCII Control Hub
                 </h2>
                 <p className='text-gray-400 text-lg'>
-                  Take control of your ASCII art creation with our powerful
-                  dashboard. Track projects, manage versions, and analyze
-                  performance all in one place.
+                  Master your ASCII projects with precision; from concept to
+                  completion, track, tweak, and triumph in one dynamic creative
+                  space.
                 </p>
                 <div className='grid sm:grid-cols-2 gap-6'>
                   {features.map((feature, index) => (

@@ -88,7 +88,7 @@ export function ContactSection() {
           <GlitchContainer>
             <h2 className='text-3xl md:text-5xl font-bold mb-6'>
               <GlitchText
-                text='Ready to Create?'
+                text='Let’s ASCII Together'
                 className='text-terminal-green'
               />
             </h2>
@@ -96,7 +96,7 @@ export function ContactSection() {
 
           <GlitchContainer delay={200}>
             <p className='text-gray-300 text-lg mb-8'>
-              Get in touch and let's build something amazing together.
+              Got an idea? Let’s bring it to life with code and creativity.
             </p>
           </GlitchContainer>
 

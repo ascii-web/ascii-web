@@ -10,24 +10,24 @@ export function TestimonialsSection() {
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      role: "Digital Artist",
+      name: "Maya Robinson",
+      role: "Educator & Curriculum Designer",
       quote:
-        "This platform has completely transformed how I create ASCII art. The AI assistance is mind-blowing!",
+        "This platform has helped me turn complex concepts into visual ASCII teaching aids. It's not just art, it's a new way to teach visually and engagingly.",
       avatar: "/placeholder-user.jpg",
     },
     {
-      name: "Marcus Rodriguez",
-      role: "Software Developer",
+      name: "Jason Brooks",
+      role: "Musician & Visual Performer",
       quote:
-        "As a developer, I appreciate the clean interface and powerful API. It's become an essential part of my toolkit.",
+        "I integrate ASCII visuals into live sets and music videos. These pure creative tools add this nostalgic tech flair that resonates with my audience.",
       avatar: "/placeholder-user.jpg",
     },
     {
-      name: "Emily Thompson",
-      role: "Content Creator",
+      name: "Chen Lei",
+      role: "UI/UX Designer",
       quote:
-        "The variety of styles and easy export options make creating unique content a breeze.",
+        "ASCII visuals give my presentations and mood boards in a refreshingly retro style, simple, creative, customizable, and surprisingly effective.",
       avatar: "/placeholder-user.jpg",
     },
   ];
