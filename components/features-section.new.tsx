@@ -38,9 +38,9 @@ const features = [
   },
   {
     icon: Code,
-    title: "Multiple Formats",
+    title: "Version History",
     description:
-      "Create in various formats: ASCII art, poems, code patterns, and MIDI visualizations",
+      "Keep track of your entire creative process effortlessly with detailed version control",
   },
   {
     icon: Layers,

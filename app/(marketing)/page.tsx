@@ -1,7 +1,7 @@
-import { NavigationHeader } from "@/components/navigation-header";
+// import { NavigationHeader } from "@/components/navigation-header";
 import { HeroSection } from "@/components/hero-section";
-import { AIAssistantWidget } from "@/components/ai-assistant-widget";
-import { Footer } from "@/components/footer";
+// import { AIAssistantWidget } from "@/components/ai-assistant-widget";
+// import { Footer } from "@/components/footer";
 import { AsciiParticles } from "@/components/ui/ascii-particles";
 import { TerminalDemo } from "@/components/ui/terminal-demo";
 import { AsciiGeneratorPreview } from "@/components/ui/ascii-generator-preview";
@@ -18,12 +18,41 @@ import { SuccessStoriesSection } from "@/components/success-stories-section.new"
 import { BlogSection } from "@/components/blog-section.new";
 import { LatestProjectsSection } from "@/components/latest-projects-section.new";
 import { PricingCalculator } from "@/components/pricing-calculator.new";
+import { JsonLd } from "@/components/json-ld";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ASCII Web - Transform Images into Beautiful ASCII Art",
+  description:
+    "Create stunning ASCII art with our AI-powered tools. Convert images to ASCII, customize your art, and share with the community. Free and easy to use!",
+};
 
 export default function HomePage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "ASCII Web",
+    applicationCategory: "Art & Design",
+    description: "AI-powered ASCII art generator and community platform",
+    operatingSystem: "Any",
+    browserRequirements: "Requires JavaScript. Best viewed in modern browsers.",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    featureList: [
+      "AI-powered image to ASCII conversion",
+      "Community gallery",
+      "Custom ASCII art creation",
+      "Real-time preview",
+      "Multiple export options",
+    ],
+  };
   return (
     <main className='min-h-screen bg-black text-white font-mono relative'>
+      <JsonLd data={structuredData} />
       <AsciiParticles />
-      <NavigationHeader />
 
       <section id='hero' className='relative'>
         <div className='absolute inset-0 z-0 opacity-20'>
@@ -45,9 +74,6 @@ export default function HomePage() {
       </section>
       <section id='creator-studio'>
         <CreatorStudioSection />
-      </section>
-      <section id='gallery'>
-        <GalleryShowcaseSection />
       </section>
       <section id='dashboard-preview'>
         <DashboardPreviewSection />
@@ -77,8 +103,7 @@ export default function HomePage() {
         <ContactSection />
       </section>
 
-      <AIAssistantWidget />
-      <Footer />
+      
     </main>
   );
 }

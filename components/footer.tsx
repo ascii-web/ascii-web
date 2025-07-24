@@ -133,7 +133,7 @@ export function Footer() {
                 {[
                   { name: "Features", href: "/#features" },
                   { name: "Creator Studio", href: "/#creator-studio" },
-                  { name: "Gallery", href: "/#gallery" },
+                  { name: "Projects", href: "/#latest-projects" },
                   { name: "Dashboard", href: "/dashboard" },
                 ].map((item) => (
                   <li key={item.name}>
