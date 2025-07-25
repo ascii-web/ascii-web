@@ -66,7 +66,7 @@ export function DashboardPreviewSection() {
     {
       icon: Folder,
       title: "Project Management",
-      description: "Organize works into collections and folders",
+      description: "Categorize works into collections and folders",
     },
   ];
 

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { getOptimizedImagePath } from "@/lib/image-utils";
 
 interface OptimizedImageProps {
   src: string;
@@ -40,36 +41,31 @@ export function OptimizedImage({
     onLoad?.();
   };
 
-  // Get optimized image paths
+  // Use getOptimizedImagePath utility for robust path generation
   const getOptimizedSrc = (
     size: number,
     format: "original" | "webp" = "original"
   ) => {
-    // During development, just use the original image
     if (process.env.NODE_ENV === "development") {
       return src;
     }
-    const ext = src.split(".").pop();
-    const basePath = src.substring(0, src.lastIndexOf("."));
-    const newExt = format === "webp" ? "webp" : ext;
-
-    // Handle case where optimized image might not exist
-    if (!ext || !basePath) return src;
-
-    return `/optimized/${size}${basePath.substring(
-      basePath.lastIndexOf("/")
-    )}.${newExt}`;
+    return getOptimizedImagePath(
+      src,
+      size,
+      format === "webp" ? "webp" : "original"
+    );
   };
 
   // Generate srcset for both original and WebP formats
-  const sizes = [16, 32, 48, 64, 96, 128, 256, 384, 640, 768, 1024, 1280, 1536];
+  // Only use sizes that are actually generated
+  const sizes = [48, 96, 128];
   const srcSet = sizes
-    .filter((size) => size <= (width || Infinity))
+    .filter((size) => !width || size <= width)
     .map((size) => `${getOptimizedSrc(size)} ${size}w`)
     .join(", ");
 
   const webpSrcSet = sizes
-    .filter((size) => size <= (width || Infinity))
+    .filter((size) => !width || size <= width)
     .map((size) => `${getOptimizedSrc(size, "webp")} ${size}w`)
     .join(", ");
 

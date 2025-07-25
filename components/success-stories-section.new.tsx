@@ -16,6 +16,7 @@ import { Badge } from "./ui/badge";
 import { Dialog, DialogContent } from "./ui/dialog";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
+import { OptimizedImage } from "./ui/optimized-image";
 
 interface SuccessStory {
   name: string;
@@ -51,7 +52,7 @@ const SUCCESS_STORIES: SuccessStory[] = [
       "Built a community of 50K+ ASCII art enthusiasts",
       "Featured in indie game showcases",
     ],
-    avatar: "/avatars/alex-rivera.jpg",
+    avatar: "/images/avatars/alex.png",
     metrics: [
       { label: "Community Members", value: "50K+", icon: "users" },
       { label: "Monthly Downloads", value: "25K", icon: "trending-up" },
@@ -66,9 +67,9 @@ const SUCCESS_STORIES: SuccessStory[] = [
     },
     tags: ["Gaming", "Indie Dev", "Pixel Art"],
     artworks: [
-      "/gallery/alex-1.png",
-      "/gallery/alex-2.png",
-      "/gallery/alex-3.png",
+      "/images/gallery/alex-1.png",
+      "/images/gallery/alex-2.png",
+      "/images/gallery/alex-3.png",
     ],
   },
   {
@@ -82,7 +83,7 @@ const SUCCESS_STORIES: SuccessStory[] = [
       "Featured in digital art exhibitions",
       "Mentored 100+ aspiring artists",
     ],
-    avatar: "/avatars/mei-zhang.jpg",
+    avatar: "/images/avatars/mei.png",
     metrics: [
       { label: "Students Taught", value: "100+", icon: "users" },
       { label: "Tutorial Views", value: "1M+", icon: "trending-up" },
@@ -96,9 +97,9 @@ const SUCCESS_STORIES: SuccessStory[] = [
     },
     tags: ["Digital Art", "Education", "Cultural Fusion"],
     artworks: [
-      "/gallery/mei-1.png",
-      "/gallery/mei-2.png",
-      "/gallery/mei-3.png",
+      "/images/gallery/mei-1.png",
+      "/images/gallery/mei-2.png",
+      "/images/gallery/mei-3.png",
     ],
   },
   {
@@ -112,7 +113,7 @@ const SUCCESS_STORIES: SuccessStory[] = [
       "Built award-winning portfolio sites",
       "Speaks at creative coding conferences",
     ],
-    avatar: "/avatars/jordan-taylor.jpg",
+    avatar: "/images/avatars/jordan.png",
     metrics: [
       { label: "Package Downloads", value: "500K", icon: "trending-up" },
       { label: "GitHub Stars", value: "2.5K", icon: "users" },
@@ -127,9 +128,9 @@ const SUCCESS_STORIES: SuccessStory[] = [
     },
     tags: ["Web Dev", "Creative Coding", "Open Source"],
     artworks: [
-      "/gallery/jordan-1.png",
-      "/gallery/jordan-2.png",
-      "/gallery/jordan-3.png",
+      "/images/gallery/jordan-1.png",
+      "/images/gallery/jordan-2.png",
+      "/images/gallery/jordan-3.png",
     ],
   },
 ];
@@ -170,10 +171,12 @@ export function SuccessStoriesSection() {
                 <div className='relative h-48 overflow-hidden'>
                   <div className='absolute inset-0 grid grid-cols-3 gap-1'>
                     {creator.artworks.map((artwork, i) => (
-                      <img
+                      <OptimizedImage
                         key={i}
                         src={artwork}
                         alt={`Artwork by ${creator.name}`}
+                        width={160}
+                        height={192}
                         className='object-cover w-full h-full filter hover:brightness-110 transition-all duration-300'
                       />
                     ))}
@@ -181,9 +184,11 @@ export function SuccessStoriesSection() {
                 </div>
                 <div className='p-6'>
                   <div className='flex items-center gap-4 mb-4'>
-                    <img
+                    <OptimizedImage
                       src={creator.avatar}
                       alt={creator.name}
+                      width={64}
+                      height={64}
                       className='w-16 h-16 rounded-full border-2 border-terminal-green/30'
                     />
                     <div>
@@ -250,9 +255,11 @@ export function SuccessStoriesSection() {
               <div className='grid grid-cols-2 gap-6'>
                 <div>
                   <div className='flex items-center gap-4 mb-6'>
-                    <img
+                    <OptimizedImage
                       src={SUCCESS_STORIES[openStory].avatar}
                       alt={SUCCESS_STORIES[openStory].name}
+                      width={80}
+                      height={80}
                       className='w-20 h-20 rounded-full border-2 border-terminal-green/30'
                     />
                     <div>
@@ -304,10 +311,12 @@ export function SuccessStoriesSection() {
                 <div>
                   <div className='grid grid-cols-2 gap-2 mb-6'>
                     {SUCCESS_STORIES[openStory].artworks.map((artwork, i) => (
-                      <img
+                      <OptimizedImage
                         key={i}
                         src={artwork}
                         alt={`Artwork by ${SUCCESS_STORIES[openStory].name}`}
+                        width={160}
+                        height={160}
                         className='w-full h-40 object-cover rounded-lg border border-terminal-green/30'
                       />
                     ))}

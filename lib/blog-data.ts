@@ -10,7 +10,6 @@ interface BlogPost {
   asciiPreview: string;
   author: {
     name: string;
-    avatar: string;
     role: string;
     bio: string;
   };
@@ -41,28 +40,27 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2025-07-22",
     category: ["Design Trends", "Case Studies"],
     readTime: "8 min",
-    image: "/optimized/blog/ascii-evolution.jpg",
+    image: "/images/blog/blog-1.png",
     asciiPreview:
       "╔═══════════╗\n║  MODERN   ║\n║   ASCII   ║\n║    ART    ║\n╚═══════════╝",
     author: {
       name: "Sarah Chen",
-      avatar: "/avatars/sarah-chen.jpg",
       role: "Design Lead",
       bio: "Sarah is a design lead with over 10 years of experience in digital design and creative technology. She specializes in bridging the gap between retro computing aesthetics and modern web experiences.",
     },
     content: {
       introduction:
-        "ASCII art, born in the early days of computing, is experiencing an unexpected renaissance in modern web design. This resurgence isn't merely nostalgia – it represents a fascinating intersection of retro computing aesthetics and contemporary digital experiences.",
+        "<a href='https://www.google.com/search?q=ascii+art&rlz=1C1CHBF_en-GBLK1098LK1098&oq=ASCII+art&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxiABBiKBTIMCAAQIxgnGIAEGIoFMgcIARAAGIAEMgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgcIBRAAGIAEMgcIBhAAGIAEMgcIBxAAGIAEMgcICBAAGIAEMgcICRAAGIAE0gEJMTExM2owajE1qAIIsAIB8QVHYuFV0F_CFw&sourceid=chrome&ie=UTF-8'>ASCII art</a>, born in the early days of computing, is experiencing an unexpected renaissance in <a href='https://www.google.com/search?q=modern+web+design&sca_esv=35e16478e05ded5f&rlz=1C1CHBF_en-GBLK1098LK1098&sxsrf=AE3TifODv8zdGKxIfVmrER7Bpw9ofJt7og%3A1753340970575&ei=KtyBaMnyIuu9juMPn5etsQs&ved=0ahUKEwjJr-KN-NSOAxXrnmMGHZ9LK7YQ4dUDCBA&uact=5&oq=modern+web+design&gs_lp=Egxnd3Mtd2l6LXNlcnAiEW1vZGVybiB3ZWIgZGVzaWduMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEiMDFD3BFj3BHABeAGQAQCYAawCoAGsAqoBAzMtMbgBA8gBAPgBAfgBApgCAqACugKoAhTCAgcQIxgnGOoCwgINEC4Y0QMYxwEYJxjqAsICExAAGIAEGEMYtAIYigUY6gLYAQGYAwjxBY5YKEGU-ThDugYGCAEQARgBkgcFMS4zLTGgB7oFsgcDMy0xuAexAsIHAzItMsgHDA&sclient=gws-wiz-serp'>modern web design</a>. This resurgence isn't merely nostalgia – it represents a fascinating intersection of <a href='https://www.google.com/search?q=retro+computing+aesthetics&sca_esv=35e16478e05ded5f&rlz=1C1CHBF_en-GBLK1098LK1098&sxsrf=AE3TifPwt-yiJx9BLs9ptLBY6if910KD-w%3A1753340985966&ei=OdyBaKzWOoq54-EP7M3ziQc&ved=0ahUKEwjs1o2V-NSOAxWK3DgGHezmPHEQ4dUDCBA&uact=5&oq=retro+computing+aesthetics&gs_lp=Egxnd3Mtd2l6LXNlcnAiGnJldHJvIGNvbXB1dGluZyBhZXN0aGV0aWNzMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMggQABiiBBiJBTIFEAAY7wVI_AdQtwRYtwRwAXgBkAEAmAGmAqABpgKqAQMyLTG4AQPIAQD4AQH4AQKYAgKgAq4CqAIUwgIHECMYJxjqAsICDRAuGNEDGMcBGCcY6gLCAhkQLhiABBjRAxhDGLQCGMcBGIoFGOoC2AEBwgITEAAYgAQYQxi0AhiKBRjqAtgBAcICFBAAGIAEGOMEGLQCGOkEGOoC2AEBmAME8QVMMdnMrp_bvroGBggBEAEYAZIHBTEuMC4xoAeqBbIHAzItMbgHqgLCBwMyLTLIBwc&sclient=gws-wiz-serp'>retro computing aesthetics</a> and contemporary digital experiences.",
       sections: [
         {
           title: "The Historical Context",
           content:
-            "ASCII art emerged in the 1960s when computer systems were limited to text-based displays. What began as a practical solution for creating graphics using available characters evolved into an art form. Early bulletin board systems (BBS) and email systems heavily utilized ASCII art for everything from logos to elaborate illustrations.",
+            "<a href='https://www.google.com/search?q=ascii+art&rlz=1C1CHBF_en-GBLK1098LK1098&oq=ASCII+art&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxiABBiKBTIMCAAQIxgnGIAEGIoFMgcIARAAGIAEMgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgcIBRAAGIAEMgcIBhAAGIAEMgcIBxAAGIAEMgcICBAAGIAEMgcICRAAGIAE0gEJMTExM2owajE1qAIIsAIB8QVHYuFV0F_CFw&sourceid=chrome&ie=UTF-8'>ASCII art</a> emerged in the 1960s when computer systems were limited to text-based displays. What began as a practical solution for creating graphics using available characters evolved into an art form. Early bulletin board systems (BBS) and email systems heavily utilized <a href='https://www.google.com/search?q=ascii+art&rlz=1C1CHBF_en-GBLK1098LK1098&oq=ASCII+art&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxiABBiKBTIMCAAQIxgnGIAEGIoFMgcIARAAGIAEMgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgcIBRAAGIAEMgcIBhAAGIAEMgcIBxAAGIAEMgcICBAAGIAEMgcICRAAGIAE0gEJMTExM2owajE1qAIIsAIB8QVHYuFV0F_CFw&sourceid=chrome&ie=UTF-8'>ASCII art</a> for everything from logos to elaborate illustrations.",
         },
         {
           title: "The Modern Revival",
           content:
-            "Today's revival of ASCII art in web design isn't about limitations – it's about creative choice. Modern designers are incorporating ASCII elements to create unique, memorable experiences that stand out in an era of polished, sometimes sterile digital interfaces. This renaissance is particularly evident in indie game development, tech startup branding, and cyberpunk-inspired web experiences.",
+            "Today's revival of <a href='https://www.google.com/search?q=ascii+art&rlz=1C1CHBF_en-GBLK1098LK1098&oq=ASCII+art&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxiABBiKBTIMCAAQIxgnGIAEGIoFMgcIARAAGIAEMgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgcIBRAAGIAEMgcIBhAAGIAEMgcIBxAAGIAEMgcICBAAGIAEMgcICRAAGIAE0gEJMTExM2owajE1qAIIsAIB8QVHYuFV0F_CFw&sourceid=chrome&ie=UTF-8'>ASCII art</a> in <a href='https://www.google.com/search?q=modern+web+design&sca_esv=35e16478e05ded5f&rlz=1C1CHBF_en-GBLK1098LK1098&sxsrf=AE3TifODv8zdGKxIfVmrER7Bpw9ofJt7og%3A1753340970575&ei=KtyBaMnyIuu9juMPn5etsQs&ved=0ahUKEwjJr-KN-NSOAxXrnmMGHZ9LK7YQ4dUDCBA&uact=5&oq=modern+web+design&gs_lp=Egxnd3Mtd2l6LXNlcnAiEW1vZGVybiB3ZWIgZGVzaWduMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEiMDFD3BFj3BHABeAGQAQCYAawCoAGsAqoBAzMtMbgBA8gBAPgBAfgBApgCAqACugKoAhTCAgcQIxgnGOoCwgINEC4Y0QMYxwEYJxjqAsICExAAGIAEGEMYtAIYigUY6gLYAQGYAwjxBY5YKEGU-ThDugYGCAEQARgBkgcFMS4zLTGgB7oFsgcDMy0xuAexAsIHAzItMsgHDA&sclient=gws-wiz-serp'>web design</a> isn't about limitations – it's about creative choice. Modern designers are incorporating ASCII elements to create unique, memorable experiences that stand out in an era of polished, sometimes sterile digital interfaces. This renaissance is particularly evident in indie game development, tech startup branding, and cyberpunk-inspired web experiences.",
         },
         {
           title: "Design Psychology",
@@ -90,28 +88,27 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2025-07-21",
     category: ["AI & Tech", "Tutorials"],
     readTime: "12 min",
-    image: "/optimized/blog/ai-ascii.jpg",
+    image: "/images/blog/blog-2.png",
     asciiPreview:
       "  _____   _\n |_   _| /\\\\   ___\n   | |  /  \\\\ / __|\n   | | / /\\\\ \\\\__ \\\n   |_|/_/  \\_\\___/",
     author: {
       name: "Dr. Maya Patel",
-      avatar: "/avatars/maya-patel.jpg",
       role: "AI Research Lead",
       bio: "Dr. Maya Patel leads AI research at ASCII Web, focusing on the intersection of artificial intelligence and creative expression. She holds a Ph.D. in Computer Science with a specialization in generative AI systems.",
     },
     content: {
       introduction:
-        "The intersection of artificial intelligence and ASCII art represents a fascinating evolution in digital creativity. As AI technologies advance, we're discovering new ways to generate, manipulate, and optimize ASCII art that pushes the boundaries of what's possible.",
+        "The intersection of <a href='https://www.google.com/search?q=artificial+intelligence&sca_esv=35e16478e05ded5f&rlz=1C1CHBF_en-GBLK1098LK1098&sxsrf=AE3TifMBu7vOwG6O4uCAfdnhs1PStM6ilA%3A1753341124324&ei=xNyBaLXIE8Gv4-EPjs2M6AM&ved=0ahUKEwi1uorX-NSOAxXB1zgGHY4mAz0Q4dUDCBA&uact=5&oq=artificial+intelligence&gs_lp=Egxnd3Mtd2l6LXNlcnAiF2FydGlmaWNpYWwgaW50ZWxsaWdlbmNlMgoQABiABBhDGIoFMhEQABiABBiRAhixAxiDARiKBTILEAAYgAQYkQIYigUyCxAAGIAEGJECGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgUQLhiABDIFEAAYgAQyBRAAGIAESIgLUIwFWIwFcAF4AZABAJgBuAOgAbgDqgEDNC0xuAEDyAEA-AEB-AECmAICoALCA6gCEcICBxAjGCcY6gLCAg0QLhjRAxjHARgnGOoCwgIUEAAYgAQY4wQYtAIY6QQY6gLYAQGYAwTxBdH8H6EZnaz7ugYGCAEQARgBkgcFMS40LTGgB5AJsgcDNC0xuAe-A8IHAzItMsgHCA&sclient=gws-wiz-serp'>artificial intelligence</a> and <a href='https://www.google.com/search?q=ascii+art&rlz=1C1CHBF_en-GBLK1098LK1098&oq=ASCII+art&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxiABBiKBTIMCAAQIxgnGIAEGIoFMgcIARAAGIAEMgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgcIBRAAGIAEMgcIBhAAGIAEMgcIBxAAGIAEMgcICBAAGIAEMgcICRAAGIAE0gEJMTExM2owajE1qAIIsAIB8QVHYuFV0F_CFw&sourceid=chrome&ie=UTF-8'>ASCII art</a> represents a fascinating evolution in digital creativity. As AI technologies advance, we're discovering new ways to generate, manipulate, and optimize <a href='https://www.google.com/search?q=ASCII+art+generation&sca_esv=35e16478e05ded5f&rlz=1C1CHBF_en-GBLK1098LK1098&sxsrf=AE3TifNiugyomuxAbhO0FyQ2Wns7fAtzPQ%3A1753341136128&ei=0NyBaKPQB6-L4-EPu4PtmA8&ved=0ahUKEwij-Nrc-NSOAxWvxTgGHbtBG_MQ4dUDCBA&uact=5&oq=ASCII+art+generation&gs_lp=Egxnd3Mtd2l6LXNlcnAiFEFTQ0lJIGFydCBnZW5lcmF0aW9uMgsQABiABBiRAhiKBTIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCkiaCVDhBFjhBHABeAGQAQCYAcoCoAHKAqoBAzMtMbgBA8gBAPgBAfgBApgCAqAC1gKoAhTCAgcQIxgnGOoCwgINEC4Y0QMYxwEYJxjqAsICExAAGIAEGEMYtAIYigUY6gLYAQHCAhMQLhiABBhDGLQCGIoFGOoC2AEBmAMI8QVQ-bFQB9M5sroGBggBEAEYAZIHBTEuMy0xoAeVCLIHAzMtMbgHzQLCBwUwLjEuMcgHCQ&sclient=gws-wiz-serp'>ASCII art</a> that pushes the boundaries of what's possible.",
       sections: [
         {
           title: "Understanding AI-Powered ASCII Art Generation",
           content:
-            "AI-powered ASCII art generation uses sophisticated neural networks trained on vast datasets of images and their ASCII representations. These systems learn to recognize patterns, understand visual hierarchies, and make intelligent decisions about character placement.",
+            "<a href='https://www.google.com/search?q=AI-powered+ASCII+art&sca_esv=35e16478e05ded5f&rlz=1C1CHBF_en-GBLK1098LK1098&sxsrf=AE3TifMh59bzYNTL3GKjg6EKtHonOmHnQQ%3A1753340998694&ei=RtyBaI6PKsHF4-EP96r6gAY&ved=0ahUKEwiOypab-NSOAxXB4jgGHXeVHmAQ4dUDCBA&uact=5&oq=AI-powered+ASCII+art&gs_lp=Egxnd3Mtd2l6LXNlcnAiFEFJLXBvd2VyZWQgQVNDSUkgYXJ0MgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMg0QLhjRAxjHARgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMhQQABiABBiRAhi0AhiKBRjqAtgBATIUEAAYgAQYkQIYtAIYigUY6gLYAQEyFBAAGIAEGJECGLQCGIoFGOoC2AEBMhQQABiABBiRAhi0AhiKBRjqAtgBATIUEAAYgAQYkQIYtAIYigUY6gLYAQEyFBAAGIAEGOMEGLQCGOkEGOoC2AEBMhQQABiABBjjBBi0AhjpBBjqAtgBAUi_CVC4BVi4BXABeAGQAQCYAQCgAQCqAQC4AQPIAQD4AQH4AQKYAgGgAgSoAhGYAwTxBSJTUE7RCv_dugYGCAEQARgBkgcBMaAHALIHALgHAMIHAzItMcgHAw&sclient=gws-wiz-serp'>AI-powered ASCII art generation</a> uses sophisticated neural networks trained on vast datasets of images and their ASCII representations. These systems learn to recognize patterns, understand visual hierarchies, and make intelligent decisions about character placement.",
         },
         {
           title: "Deep Learning Architectures",
           content:
-            "Modern ASCII art generation relies heavily on convolutional neural networks (CNNs) and transformer architectures. These systems analyze input images at multiple levels of abstraction, considering factors like contrast, edges, and spatial relationships to make intelligent character selections. Advanced models can even learn style preferences and maintain consistent artistic choices across multiple generations.",
+            "Modern <a href='https://www.google.com/search?q=ASCII+art+generation&sca_esv=35e16478e05ded5f&rlz=1C1CHBF_en-GBLK1098LK1098&sxsrf=AE3TifNiugyomuxAbhO0FyQ2Wns7fAtzPQ%3A1753341136128&ei=0NyBaKPQB6-L4-EPu4PtmA8&ved=0ahUKEwij-Nrc-NSOAxWvxTgGHbtBG_MQ4dUDCBA&uact=5&oq=ASCII+art+generation&gs_lp=Egxnd3Mtd2l6LXNlcnAiFEFTQ0lJIGFydCBnZW5lcmF0aW9uMgsQABiABBiRAhiKBTIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCkiaCVDhBFjhBHABeAGQAQCYAcoCoAHKAqoBAzMtMbgBA8gBAPgBAfgBApgCAqAC1gKoAhTCAgcQIxgnGOoCwgINEC4Y0QMYxwEYJxjqAsICExAAGIAEGEMYtAIYigUY6gLYAQHCAhMQLhiABBhDGLQCGIoFGOoC2AEBmAMI8QVQ-bFQB9M5sroGBggBEAEYAZIHBTEuMy0xoAeVCLIHAzMtMbgHzQLCBwUwLjEuMcgHCQ&sclient=gws-wiz-serp'>ASCII art generation</a> relies heavily on convolutional neural networks (CNNs) and transformer architectures. These systems analyze input images at multiple levels of abstraction, considering factors like contrast, edges, and spatial relationships to make intelligent character selections. Advanced models can even learn style preferences and maintain consistent artistic choices across multiple generations.",
           codeExample:
             "async function generateAsciiArt(image, style = 'detailed') {\n  const model = await loadAsciiModel();\n  const config = {\n    charset: style === 'minimal' ? MINIMAL_CHARS : DETAILED_CHARS,\n    preserveAspectRatio: true,\n    enhanceContrast: true\n  };\n  return model.predict(preprocessImage(image, config));\n}",
         },
@@ -137,11 +134,10 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2025-07-20",
     category: ["Creative Coding", "Innovation"],
     readTime: "10 min",
-    image: "/optimized/blog/creative-coding.jpg",
+    image: "/images/blog/blog-3.png",
     asciiPreview: " /\\\\ /\\\\\n( o.o )\n > ^ <",
     author: {
       name: "Marcus Wong",
-      avatar: "/avatars/marcus-wong.jpg",
       role: "Creative Technologist",
       bio: "Marcus is a creative technologist specializing in interactive installations and digital experiences. With a background in both art and computer science, he creates unique digital experiences that bridge technology and creativity.",
     },
@@ -182,11 +178,10 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "2025-07-19",
     category: ["Accessibility", "Best Practices"],
     readTime: "15 min",
-    image: "/optimized/blog/ascii-accessibility.jpg",
+    image: "/images/blog/blog-4.png",
     asciiPreview: "♿ == [A11Y] ==\n{  ASCII  }\n[  FOR   ]\n<< ALL >>",
     author: {
       name: "Alex Rivera",
-      avatar: "/avatars/alex-rivera.jpg",
       role: "Accessibility Specialist",
       bio: "Alex is an accessibility specialist with a passion for making digital art forms inclusive. They have contributed to several W3C guidelines and regularly consult on making creative digital experiences accessible to all users.",
     },

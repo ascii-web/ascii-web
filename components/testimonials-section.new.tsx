@@ -10,25 +10,25 @@ export function TestimonialsSection() {
 
   const testimonials = [
     {
-      name: "Maya Robinson",
+      name: "Mike Robinson",
       role: "Educator & Curriculum Designer",
       quote:
         "This platform has helped me turn complex concepts into visual ASCII teaching aids. It's not just art, it's a new way to teach visually and engagingly.",
-      avatar: "/placeholder-user.jpg",
+      avatar: "/images/avatars/mike.png",
     },
     {
       name: "Jason Brooks",
       role: "Musician & Visual Performer",
       quote:
         "I integrate ASCII visuals into live sets and music videos. These pure creative tools add this nostalgic tech flair that resonates with my audience.",
-      avatar: "/placeholder-user.jpg",
+      avatar: "/images/avatars/jason.png",
     },
     {
-      name: "Chen Lei",
+      name: "Chen Lee",
       role: "UI/UX Designer",
       quote:
         "ASCII visuals give my presentations and mood boards in a refreshingly retro style, simple, creative, customizable, and surprisingly effective.",
-      avatar: "/placeholder-user.jpg",
+      avatar: "/images/avatars/chen.png",
     },
   ];
 

@@ -91,7 +91,7 @@ export function HowItWorksSection() {
 
                   <GlitchContainer delay={100}>
                     <p className='text-gray-400 text-sm'>
-                      Provide a detailed text prompt or upload an image.
+                      Type in a detailed prompt or upload your favorite image.
                     </p>
                   </GlitchContainer>
                 </div>
@@ -129,8 +129,8 @@ export function HowItWorksSection() {
                         <span className='text-gray-300'>Fine-Tuning</span>
                       </div>
                       <div className='text-xs text-gray-400'>
-                        • Creativity Level • Complexity • Character Set • Aspect
-                        Ratio
+                        • Creativity Level •Detail Complexity • Character Set •
+                        Aspect Ratio
                       </div>
                     </div>
                   </div>
@@ -143,8 +143,8 @@ export function HowItWorksSection() {
 
                   <GlitchContainer delay={100}>
                     <p className='text-gray-400 text-sm'>
-                      Fine-tune your creation with precise controls and style
-                      options.
+                      Perfect your output with detailed adjustments and diverse
+                      styling options.
                     </p>
                   </GlitchContainer>
                 </div>
@@ -170,7 +170,7 @@ export function HowItWorksSection() {
 
                   <h3 className='text-xl font-bold mb-4'>
                     <GlitchText
-                      text='Manage Your Creation'
+                      text='Craft Your Vision'
                       className='text-terminal-green'
                     />
                   </h3>
@@ -218,8 +218,8 @@ export function HowItWorksSection() {
 
                   <GlitchContainer delay={100}>
                     <p className='text-gray-400 text-sm'>
-                      Preview your creation, then save and share it with the
-                      world.
+                      View your finished piece, save and showcase it across your
+                      favorite platforms.
                     </p>
                   </GlitchContainer>
                 </div>

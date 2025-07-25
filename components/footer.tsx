@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Facebook, Youtube, Twitter, Linkedin } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
-
+import { Logo } from "@/components/ui/logo";
 const socialLinks = [
   {
     name: "Facebook",
@@ -76,13 +76,9 @@ export function Footer() {
               className='flex items-center space-x-4 fade-in-glitch'
               style={{ animationDelay: "0ms" }}
             >
-              <OptimizedImage
-                src='/placeholder-logo.svg'
-                alt='ASCII Web'
-                width={48}
-                height={48}
-                className='h-12 w-auto'
-                priority={true}
+              <Logo
+                variant='icon'
+                className='h-8 w-auto text-terminal-green transition-transform duration-300'
               />
               <span
                 className='glitch-text text-2xl font-bold text-terminal-green tracking-tight'
@@ -98,7 +94,10 @@ export function Footer() {
             >
               Transform your digital art into stunning ASCII masterpieces. Our
               AI-powered platform brings retro aesthetics to modern creativity,
-              enabling artists to create unique pixel-perfect experiences.
+              enabling artists to create unique pixel-perfect experiences. Turn
+              your vision into mesmerizing ASCII masterpieces with our ASCII,
+              which blends retro aesthetics with modern creativity, enabling
+              artists to create unique pixel-perfect experiences
             </p>
 
             <div

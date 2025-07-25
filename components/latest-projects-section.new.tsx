@@ -36,7 +36,6 @@ interface Project {
   id: string;
   title: string;
   author: string;
-  authorAvatar: string;
   likes: number;
   views: number;
   downloads: number;
@@ -56,7 +55,6 @@ const FEATURED_PROJECTS: Project[] = [
     id: "1",
     title: "Cyberpunk City",
     author: "PixelMaster",
-    authorAvatar: "/placeholder-user.jpg",
     likes: 1240,
     views: 5600,
     downloads: 890,
@@ -83,7 +81,6 @@ const FEATURED_PROJECTS: Project[] = [
     id: "2",
     title: "Space Explorer",
     author: "ASCIIArtist",
-    authorAvatar: "/placeholder-user.jpg",
     likes: 980,
     views: 4200,
     downloads: 650,
@@ -107,7 +104,6 @@ const FEATURED_PROJECTS: Project[] = [
     id: "3",
     title: "Retro Game Scene",
     author: "GameDev",
-    authorAvatar: "/placeholder-user.jpg",
     likes: 750,
     views: 3100,
     downloads: 420,
@@ -131,7 +127,6 @@ const FEATURED_PROJECTS: Project[] = [
     id: "4",
     title: "Nature's Harmony",
     author: "EcoArtist",
-    authorAvatar: "/placeholder-user.jpg",
     likes: 890,
     views: 3800,
     downloads: 520,
@@ -155,7 +150,6 @@ const FEATURED_PROJECTS: Project[] = [
     id: "5",
     title: "Ocean Waves",
     author: "WaveRider",
-    authorAvatar: "/placeholder-user.jpg",
     likes: 1120,
     views: 4700,
     downloads: 680,
@@ -179,7 +173,6 @@ const FEATURED_PROJECTS: Project[] = [
     id: "6",
     title: "Robot Friend",
     author: "TechArtisan",
-    authorAvatar: "/placeholder-user.jpg",
     likes: 950,
     views: 3900,
     downloads: 445,
@@ -203,7 +196,6 @@ const FEATURED_PROJECTS: Project[] = [
     id: "7",
     title: "Fantasy Castle",
     author: "MedievalMaster",
-    authorAvatar: "/placeholder-user.jpg",
     likes: 1560,
     views: 6200,
     downloads: 920,
@@ -227,7 +219,6 @@ const FEATURED_PROJECTS: Project[] = [
     id: "8",
     title: "Pixel Cat",
     author: "PetPixeler",
-    authorAvatar: "/placeholder-user.jpg",
     likes: 2100,
     views: 7800,
     downloads: 1250,
@@ -253,7 +244,6 @@ const FEATURED_PROJECTS: Project[] = [
     id: "9",
     title: "Mountain Peak",
     author: "AlpineArtist",
-    authorAvatar: "/placeholder-user.jpg",
     likes: 1850,
     views: 6900,
     downloads: 980,
@@ -277,7 +267,6 @@ const FEATURED_PROJECTS: Project[] = [
     id: "10",
     title: "Rainy Night",
     author: "WeatherArt",
-    authorAvatar: "/placeholder-user.jpg",
     likes: 1340,
     views: 5200,
     downloads: 760,
@@ -301,7 +290,6 @@ const FEATURED_PROJECTS: Project[] = [
     id: "11",
     title: "Pixel Dragon",
     author: "DragonMaster",
-    authorAvatar: "/placeholder-user.jpg",
     likes: 2400,
     views: 8900,
     downloads: 1450,
@@ -325,7 +313,6 @@ const FEATURED_PROJECTS: Project[] = [
     id: "12",
     title: "Retro Computer",
     author: "TechnoVintage",
-    authorAvatar: "/placeholder-user.jpg",
     likes: 1780,
     views: 6700,
     downloads: 890,
@@ -592,16 +579,6 @@ export function LatestProjectsSection() {
                             {/* Project Info */}
                             <div className='flex items-center justify-between mb-4'>
                               <div className='flex items-center gap-3'>
-                                <motion.img
-                                  src={project.authorAvatar}
-                                  alt={project.author}
-                                  className='w-8 h-8 rounded-full'
-                                  whileHover={{ scale: 1.1 }}
-                                  transition={{
-                                    type: "spring",
-                                    stiffness: 300,
-                                  }}
-                                />
                                 <div>
                                   <h3 className='font-bold text-terminal-green group-hover:text-terminal-green/80 transition-colors'>
                                     {project.title}
@@ -743,11 +720,6 @@ export function LatestProjectsSection() {
                     </DialogTrigger>
                     <DialogContent className='max-w-2xl bg-black border-terminal-green/30'>
                       <div className='flex items-center gap-2 mb-4'>
-                        <img
-                          src={project.authorAvatar}
-                          alt={project.author}
-                          className='w-8 h-8 rounded-full'
-                        />
                         <div>
                           <div className='font-bold text-terminal-green'>
                             {project.author}

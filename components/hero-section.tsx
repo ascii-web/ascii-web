@@ -111,7 +111,7 @@ export function HeroSection() {
             size='lg'
             asChild
           >
-            <a href='#gallery'>Explore Gallery</a>
+            <a href='#latest-projects'>Explore Gallery</a>
           </Button>
         </div>
       </div>

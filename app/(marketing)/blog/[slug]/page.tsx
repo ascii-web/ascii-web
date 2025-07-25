@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import "@/styles/blog-content-links.css";
 import { getBlogPost, getAllBlogPosts } from "@/lib/blog-data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,7 @@ import {
   Calendar,
 } from "lucide-react";
 import Link from "next/link";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 interface Props {
   params: {
@@ -75,11 +77,6 @@ export default function BlogPost({ params }: Props) {
             </h1>
             <div className='flex items-center gap-4 mb-6'>
               <div className='flex items-center gap-2'>
-                <img
-                  src={post.author.avatar}
-                  alt={post.author.name}
-                  className='w-12 h-12 rounded-full'
-                />
                 <div>
                   <p className='font-medium text-terminal-green'>
                     {post.author.name}
@@ -96,23 +93,29 @@ export default function BlogPost({ params }: Props) {
 
           {/* ASCII Preview */}
           <div className='mb-8'>
-            <pre className='font-mono text-terminal-green text-sm bg-gray-900 p-6 rounded-lg border border-terminal-green/30'>
-              {post.asciiPreview}
-            </pre>
+            <OptimizedImage
+              src={post.image}
+              alt={post.title}
+              className='w-full h-64 object-cover rounded-lg mb-4 transition-transform hover:scale-105 duration-300'
+            />
           </div>
 
           {/* Content */}
-          <div className='prose prose-invert prose-terminal max-w-none'>
-            <p className='text-lg text-gray-300 mb-8'>
-              {post.content.introduction}
-            </p>
+          <div className='prose prose-invert prose-terminal max-w-none blog-content-links'>
+            <p
+              className='text-lg text-gray-300 mb-8'
+              dangerouslySetInnerHTML={{ __html: post.content.introduction }}
+            ></p>
 
             {post.content.sections.map((section, index) => (
               <div key={index} className='mb-8'>
                 <h2 className='text-2xl font-bold text-terminal-green mb-4'>
                   {section.title}
                 </h2>
-                <div className='text-gray-300 mb-4'>{section.content}</div>
+                <div
+                  className='text-gray-300 mb-4'
+                  dangerouslySetInnerHTML={{ __html: section.content }}
+                ></div>
                 {section.codeExample && (
                   <pre className='font-mono text-sm bg-gray-900 p-4 rounded-lg border border-terminal-green/30 overflow-x-auto'>
                     <code>{section.codeExample}</code>

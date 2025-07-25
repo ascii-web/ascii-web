@@ -13,6 +13,7 @@ import {
   Search,
 } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { Logo } from "@/components/ui/logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/firebase-auth";
@@ -103,16 +104,19 @@ export function DashboardSidebar() {
         <div className='flex items-center justify-between'>
           <a
             href='/'
-            className={`text-terminal-green text-xl font-bold hover:text-terminal-green/80 transition-colors ${
+            className={`text-terminal-green hover:text-terminal-green/80 transition-colors ${
               isCollapsed ? "hidden" : "block"
             }`}
           >
-            <pre className='text-sm leading-tight'>{`╔═══════════╗
-║ ASCII-WEB ║
-╚═══════════╝`}</pre>
+            <Logo variant='full' />
           </a>
           {isCollapsed && (
-            <div className='text-terminal-green text-lg font-bold'>A</div>
+            <a
+              href='/'
+              className='text-terminal-green hover:text-terminal-green/80 transition-colors'
+            >
+              <Logo variant='icon' />
+            </a>
           )}
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}

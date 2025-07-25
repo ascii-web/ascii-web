@@ -8,6 +8,7 @@ import Link from "next/link";
 import { getRecentBlogPosts, BLOG_CATEGORIES } from "@/lib/blog-data";
 import { cn } from "@/lib/utils";
 import { GlitchVariation } from "@/components/ui/glitch-variations";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 const CATEGORIES = ["All", ...BLOG_CATEGORIES] as const;
 
@@ -29,14 +30,14 @@ export function BlogSection() {
             <div>
               <GlitchVariation variant='slice' delay={200}>
                 <h2 className='text-4xl md:text-5xl font-bold text-terminal-green mb-4'>
-                  Latest Updates
+                  Updates & Innovations
                 </h2>
               </GlitchVariation>
 
               <GlitchVariation variant='digital' delay={300}>
                 <p className='text-gray-400 text-lg mb-8'>
-                  Stay informed about the latest in ASCII art and creative
-                  technology
+                  Stay inspired with fresh ideas, tutorials, and expert
+                  perspectives on ASCII art and innovation
                 </p>
               </GlitchVariation>
 
@@ -85,20 +86,25 @@ export function BlogSection() {
               >
                 <Link href={`/blog/${post.slug}`}>
                   <div className='bg-gray-900 rounded-lg overflow-hidden border border-terminal-green/30 hover:border-terminal-green/60 transition-all group h-full flex flex-col'>
-                    <div className='bg-black p-6 font-mono text-terminal-green text-sm'>
-                      <pre className='whitespace-pre-wrap transition-transform group-hover:scale-105 duration-300'>
-                        {post.asciiPreview}
-                      </pre>
+                    <div className='bg-black font-mono text-terminal-green text-sm'>
+                      <OptimizedImage
+                        src={post.image}
+                        alt={post.title}
+                        
+                        className='w-full h-full p-4 object-cover rounded-lg transition-transform group-hover:scale-105 duration-300'
+                      />
                     </div>
 
                     <div className='p-6 flex-1 flex flex-col'>
                       <div className='flex items-center justify-between mb-4'>
                         <div className='flex items-center gap-2'>
-                          <img
+                          {/* <OptimizedImage
                             src={post.author.avatar}
                             alt={post.author.name}
+                            width={32}
+                            height={32}
                             className='w-8 h-8 rounded-full'
-                          />
+                          /> */}
                           <div>
                             <p className='text-sm font-medium text-terminal-green'>
                               {post.author.name}

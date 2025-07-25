@@ -288,13 +288,14 @@ export function PricingCalculator() {
           <div className='text-center mb-16'>
             <GlitchVariation variant='slice' delay={200}>
               <h2 className='text-4xl md:text-5xl font-bold text-terminal-green mb-6'>
-                Choose Your Plan
+                Choose Your Creative Plan
               </h2>
             </GlitchVariation>
 
             <GlitchVariation variant='digital' delay={300}>
               <p className='text-gray-400 text-lg'>
-                Scale your ASCII art creation with flexible pricing
+                Flexible pricing crafted to inspire and grow your ASCII
+                creations
               </p>
             </GlitchVariation>
           </div>
@@ -323,8 +324,7 @@ export function PricingCalculator() {
                               Annual Billing
                             </h3>
                             <p className='text-sm text-gray-400'>
-                              Save up to ${calculateSavings()} with annual
-                              billing
+                              Save ${calculateSavings()} with annual billing
                             </p>
                           </div>
                           <Switch

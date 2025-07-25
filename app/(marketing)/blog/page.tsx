@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Clock, ChevronRight, Calendar } from "lucide-react";
 import { useState } from "react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -75,11 +76,6 @@ export default function BlogPage() {
                   <div className='flex flex-col h-full'>
                     <div className='flex items-center justify-between mb-4'>
                       <div className='flex items-center gap-2'>
-                        <img
-                          src={post.author.avatar}
-                          alt={post.author.name}
-                          className='w-10 h-10 rounded-full'
-                        />
                         <div>
                           <p className='text-sm font-medium text-terminal-green'>
                             {post.author.name}
@@ -115,10 +111,14 @@ export default function BlogPage() {
                       <p className='text-gray-400 line-clamp-2'>
                         {post.excerpt}
                       </p>
-
-                      <pre className='font-mono text-terminal-green text-sm bg-black/50 p-4 rounded-lg overflow-hidden max-h-24'>
+                      <OptimizedImage
+                        src={post.image}
+                        alt={post.title}
+                        className='w-full object-cover rounded-lg transition-transform group-hover:scale-105 duration-300'
+                      />
+                      {/* <pre className='font-mono text-terminal-green text-sm bg-black/50 p-4 rounded-lg overflow-hidden max-h-24'>
                         {post.asciiPreview}
-                      </pre>
+                      </pre> */}
                     </div>
 
                     <div className='flex items-center justify-between pt-4 mt-4 border-t border-terminal-green/20'>
